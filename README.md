@@ -1,16 +1,32 @@
 # Project 4: Around The U.S.
 
+### Practicum by Yandex Web Development Program 2021-2022
+
 ### Overview
 
-* Figma
-* Images
+* Poject Description
+* Project Technologies
+* Poject Roadmap
+* Project Link (Figma)
+* Project Link
 
-**Figma**
+
+**Project Description**
+
+A simple one-page website created using HTML5, CSS and JavaScript in compliance with specifications from Figma. The project is build with the technologies which provide responsiveness to all the elements so they are correctly displayed on popular screen sizes (1280px - browser, 320px - mobile). JavaScript is used to add functionality to Form Fields in a Popup Box and save the edited values. BEM methodology used (nested file structure). 
+
+**Project Technologies**
+
+HTML5, CSS3, JavaScript, Flexbox, Grid Layout, BEM, Media Queries. 
+
+**Project Roadmap**
+
+Sprint 1 - Created a simple one-page website created using HTML5 and CSS. Added responsiveness (1280px - browser, 320px - mobile). Basic popup box created using JavaScript (input values - "name", "about me", save-button). 
+
+In the future Sprints more functionality will be added.
+
+**Project Link (Figma)**
 
 * [Link to the project in Figma](https://www.figma.com/file/SurN1jaeEQIhuZEDMhmWWf/Sprint-4-Around-The-U.S.-desktop-mobile?node-id=0%3A1)
 
-**Images**
-
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
-
-Have fun with JavaScript!
+**Project Link**

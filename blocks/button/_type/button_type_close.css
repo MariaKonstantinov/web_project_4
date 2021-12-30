@@ -1,0 +1,13 @@
+.button_type_close {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: -10%;
+    right: -8%;
+    background: url(../../../images/buttton_close.svg) no-repeat center;
+  }
+  
+  .button_type_close:hover {
+    opacity: 0.6;
+  }
+  
