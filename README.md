@@ -4,12 +4,17 @@
 
 ### Overview
 
+* Project Purpose
 * Poject Description
 * Project Technologies
 * Poject Roadmap
 * Project Link (Figma)
 * Project Link
 
+
+**Project Purpose**
+
+The purpose of the project is to build an interactive web page where users can add, remove, or like photos.
 
 **Project Description**
 
