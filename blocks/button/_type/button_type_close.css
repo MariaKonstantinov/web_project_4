@@ -5,9 +5,15 @@
     top: -10%;
     right: -8%;
     background: url(../../../images/buttton_close.svg) no-repeat center;
+    background-size: 100%;
   }
   
   .button_type_close:hover {
     opacity: 0.6;
   }
   
+  @media screen and (max-width: 320px) {
+    .button_type_close {
+      background-size: auto;
+    }
+  }

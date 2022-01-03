@@ -1,10 +1,12 @@
-let editButton = document.querySelector(".button_type_edit");
-let popup = document.querySelector(".popup");
-let closeButton = document.querySelector(".button_type_close");
-let profileName = document.querySelector(".profile__name");
-let nameInput = document.querySelector(".popup__input_type_name");
-let profileJob = document.querySelector(".profile__job");
-let jobInput = document.querySelector(".popup__input_type_job");
+/* Popup Form - Edit Profile*/
+
+const editButton = document.querySelector(".button_type_edit");
+const popup = document.querySelector(".popup");
+const closeButton = document.querySelector(".button_type_close");
+const profileName = document.querySelector(".profile__name");
+const nameInput = document.querySelector(".popup__input_type_name");
+const profileJob = document.querySelector(".profile__job");
+const jobInput = document.querySelector(".popup__input_type_job");
 
 function openPopup() {
   popup.classList.add("popup_opened");
@@ -29,11 +31,7 @@ function handleEditFormSubmit(event) {
   closePopup();
 }
 
-function handleCloseButtonClick() {
-  //   console.log("Close button is clicked");
-  closePopup(popup);
-}
-
 editButton.addEventListener("click", handleEditButtonClick);
 popup.addEventListener("submit", handleEditFormSubmit);
-closeButton.addEventListener("click", handleCloseButtonClick);
+closeButton.addEventListener("click", () => closePopup());
+

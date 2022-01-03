@@ -13,14 +13,14 @@
 
     <div class="popup">
         <div class="popup__window">
-            <button type="button" class="button button_type_close"></button>
+            <button type="button" class="button button_type_close" aria-label="close"></button>
             <h2 class="popup__title">Edit profile</h2>
             <form class="popup__form" name="profileEditForm">
                 <input type="text" class="popup__input popup__input_type_name" name="profileFormNameInput"
                     placeholder="Your name">
                 <input type="text" class="popup__input popup__input_type_job" name="profileFormJobInput"
                     placeholder="Your job">
-                <button type="submit" class="button button_type_submit">Save</button>
+                <button type="submit" class="button button_type_submit" aria-label="submit">Save</button>
             </form>
         </div>
     </div>
@@ -34,11 +34,13 @@
             <div class="profile__info">
                 <div class="profile__wrapper">
                     <h1 class="profile__name">Jacques Cousteau</h1>
-                    <button type="button" class="button button_type_edit"></button>
+                    <button type="button" class="button button_type_edit" aria-label="edit"></button>
                 </div>
                 <p class="profile__job">Explorer</p>
             </div>
-            <button type="button" class="button button_type_add"></button>
+            <button type="button" class="button button_type_add" aria-label="add">
+                <img src="./images/button_add.svg" alt="plus symbol">
+            </button>
         </section>
 
         <section class="cards">
@@ -47,42 +49,43 @@
                     <img class="cards__image" src="./images/Yosemite-Valley.svg" alt="Yosemite Valley image">
                     <div class="cards__content">
                         <h2 class="cards__title">Yosemite Valley</h2>
-                        <button type="button" class="button button_style_like"></button>
+                        <button type="button" class="button button_style_like" aria-label="like"></button>
                     </div>
                 </li>
                 <li class="cards__card">
                     <img class="cards__image" src="./images/Lake-Louise.svg" alt="Lake Louise image">
                     <div class="cards__content">
                         <h2 class="cards__title">Lake Louise</h2>
-                        <button type="button" class="button button_style_like"></button>
+                        <button type="button" class="button button_style_like" aria-label="like"></button>
                     </div>
                 </li>
                 <li class="cards__card">
                     <img class="cards__image" src="./images/Bald-Mountains.svg" alt="Bald-Mountains image">
                     <div class="cards__content">
                         <h2 class="cards__title">Bald Mountains</h2>
-                        <button type="button" class="button button_style_like"></button>
+                        <button type="button" class="button button_style_like" aria-label="like"></button>
                     </div>
                 </li>
                 <li class="cards__card">
                     <img class="cards__image" src="./images/Latemar.svg" alt="Latemar image">
                     <div class="cards__content">
                         <h2 class="cards__title">Latemar</h2>
-                        <button type="button" class="button button_style_like"></button>
+                        <button type="button" class="button button_style_like" aria-label="like"></button>
                     </div>
                 </li>
                 <li class="cards__card">
-                    <img class="cards__image" src="./images/Vanoise-National-Park.svg" alt="Vanoise National Park image">
+                    <img class="cards__image" src="./images/Vanoise-National-Park.svg"
+                        alt="Vanoise National Park image">
                     <div class="cards__content">
                         <h2 class="cards__title">Vanoise National Park</h2>
-                        <button type="button" class="button button_style_like"></button>
+                        <button type="button" class="button button_style_like" aria-label="like"></button>
                     </div>
                 </li>
                 <li class="cards__card">
                     <img class="cards__image" src="./images/Lago-di-Braies.svg" alt="Lago-di-Braies image">
                     <div class="cards__content">
                         <h2 class="cards__title">Lago di Braies</h2>
-                        <button type="button" class="button button_style_like"></button>
+                        <button type="button" class="button button_style_like" aria-label="like"></button>
                     </div>
                 </li>
             </ul>

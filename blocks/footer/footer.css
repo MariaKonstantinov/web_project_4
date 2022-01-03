@@ -7,8 +7,9 @@
 
   @media screen and (max-width: 320px) {
     .footer {
-      margin: 50px 19px 0;
+      margin: 50px 19px 0 19px;
       padding-bottom: 36px;
+      max-width: 282px;
     }
   }
-   
+  

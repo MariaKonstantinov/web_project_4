@@ -26,7 +26,8 @@ HTML5, CSS3, JavaScript, Flexbox, Grid Layout, BEM, Media Queries.
 
 **Project Roadmap**
 
-Sprint 1 - Created a simple one-page website created using HTML5 and CSS. Added responsiveness (1280px - browser, 320px - mobile). Basic popup box created using JavaScript (input values - "name", "about me", save-button). 
+* Sprint 1 => Created a simple one-page website created using HTML5 and CSS. Added responsiveness (max 1280px -> browser, min 320px -> mobile). Basic popup box created using JavaScript (input text values - "name", "about me", save-button and close-button).
+
 
 In the future Sprints more functionality will be added.
 
