@@ -17,9 +17,9 @@
             <h2 class="popup__title">Edit profile</h2>
             <form class="popup__form" name="profileEditForm">
                 <input type="text" class="popup__input popup__input_type_name" name="profileFormNameInput"
-                    placeholder="Your name">
+                    placeholder="Your name" minlength="2" maxlength="18" required>
                 <input type="text" class="popup__input popup__input_type_job" name="profileFormJobInput"
-                    placeholder="Your job">
+                    placeholder="Your job" minlength="2" maxlength="18" required>
                 <button type="submit" class="button button_type_submit" aria-label="submit">Save</button>
             </form>
         </div>
