@@ -12,7 +12,7 @@
     opacity: 0.6;
   }
   
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 550px) {
     .button_type_close {
       background-size: auto;
     }

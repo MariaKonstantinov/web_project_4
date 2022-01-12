@@ -4,19 +4,11 @@
     position: relative;
   }
 
-  @media screen and (max-width: 320px) {
-    .profile__info {
-      text-align: center;
-      margin: 26px 0 36px;
-      max-width: 282px;
-    }
-  } 
-
   @media screen and (max-width: 650px) {
     .profile__info {
       text-align: center;
       margin: 26px 0 36px;
-      max-width: 282px;
+      max-width: 90%;
     }
   }
    

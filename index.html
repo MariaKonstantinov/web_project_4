@@ -17,9 +17,9 @@
             <h2 class="popup__title">Edit profile</h2>
             <form class="popup__form" name="profileEditForm">
                 <input type="text" class="popup__input popup__input_type_name" name="profileFormNameInput"
-                    placeholder="Your name" minlength="2" maxlength="18" required>
+                    placeholder="Your name">
                 <input type="text" class="popup__input popup__input_type_job" name="profileFormJobInput"
-                    placeholder="Your job" minlength="2" maxlength="18" required>
+                    placeholder="Your job">
                 <button type="submit" class="button button_type_submit" aria-label="submit">Save</button>
             </form>
         </div>
@@ -29,14 +29,19 @@
         <img class="logo" src="./images/around_logo_header.svg" alt="Around the U.S. text logo">
     </header>
     <main class="content">
+
         <section class="profile">
-            <img class="profile__image" src="./images/profile-image.svg" alt="Jacques Cousteau image">
+            <div class="profile__image-wrapper">
+                <img class="profile__image" src="./images/profile-image.svg" alt="Jacques Cousteau image">
+            </div>
             <div class="profile__info">
                 <div class="profile__wrapper">
                     <h1 class="profile__name">Jacques Cousteau</h1>
                     <button type="button" class="button button_type_edit" aria-label="edit"></button>
                 </div>
-                <p class="profile__job">Explorer</p>
+                <div class="profile__job-wrapper">
+                    <p class="profile__job">Explorer</p>
+                </div>
             </div>
             <button type="button" class="button button_type_add" aria-label="add">
                 <img src="./images/button_add.svg" alt="plus symbol">

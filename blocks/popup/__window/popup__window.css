@@ -14,3 +14,10 @@
       margin: 0 19px;
     }
   }
+
+  @media screen and (max-width: 550px) {
+    .popup__window {
+      width: 282px;
+      margin: auto;
+    }
+  }
