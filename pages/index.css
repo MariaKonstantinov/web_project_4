@@ -12,9 +12,9 @@
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__window/popup__window.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
-@import url(../blocks/popup/__zoom/_wrapper/popup__zoom_wrapper.css);
-@import url(../blocks/popup/__zoom/_image/popup__zoom_image.css);
-@import url(../blocks/popup/__zoom/_title/popup__zoom_title.css);
+@import url(../blocks/popup/__zoom/popup__zoom-wrapper.css);
+@import url(../blocks/popup/__zoom/popup__zoom-image.css);
+@import url(../blocks/popup/__zoom/popup__zoom-title.css);
 
 /*Block - Header*/
 @import url(../blocks/header/header.css);

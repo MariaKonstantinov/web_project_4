@@ -1,9 +1,8 @@
-.popup__zoom_wrapper {
+.popup__zoom-wrapper {
   background: transparent;
   display: flex;
   justify-content: center;
   padding: 0;
   width: fit-content;
-
   }
   

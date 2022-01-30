@@ -119,8 +119,8 @@ function createCard (card) {
 
 /*Function to Preview Image*/
 const popUpImageZoom = document.querySelector(".popup_type_zoom-card");
-const imageZoom = document.querySelector(".popup__zoom_image");
-const imageZoomTitle = document.querySelector(".popup__zoom_title");
+const imageZoom = document.querySelector(".popup__zoom-image");
+const imageZoomTitle = document.querySelector(".popup__zoom-title");
 
 function handleCardImageClick (event) {
   imageZoom.src = event.target.src;
