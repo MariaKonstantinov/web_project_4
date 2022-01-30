@@ -5,7 +5,3 @@
     padding-left: 26px;
     background: url(../../../images/button_like.svg) no-repeat center;
 }
-
-.button_style_like:hover {
-    opacity: 0.5;
-}
