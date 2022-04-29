@@ -35,4 +35,4 @@ In the future Sprints more functionality will be added.
 * [Project Link in Figma](https://www.figma.com/file/SurN1jaeEQIhuZEDMhmWWf/Sprint-4-Around-The-U.S.-desktop-mobile?node-id=0%3A1)
 
 **Project Link**
-* [Project Link](https://mariakonstantinov.github.io/coh_02_web_project_4/)
+* [Project Link](https://mariakonstantinov.github.io/web_project_4/)
