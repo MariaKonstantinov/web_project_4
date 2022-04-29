@@ -1,0 +1,27 @@
+/*Normalize & Fonts*/
+@import url(../vendor/normalize.css);
+@import url(../vendor/fonts/inter/inter.css);
+
+/*Block - Root*/
+@import url(../blocks/root.css);
+
+/*Block - Popup*/
+@import url(../blocks/popup.css);
+
+/*Block - Header*/
+@import url(../blocks/header.css);
+
+/*Block - Logo*/
+@import url(../blocks/logo.css);
+
+/*Block - Profile*/
+@import url(../blocks/profile.css);
+
+/*Block - Button*/
+@import url(../blocks/button.css);
+
+/*Block - Cards*/
+@import url(../blocks/cards.css);
+
+/*Block - Footer*/
+@import url(../blocks/footer.css);
