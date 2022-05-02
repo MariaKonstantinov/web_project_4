@@ -5,7 +5,7 @@
   max-width: 880px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 900px) {
   .footer {
     margin: 50px 19px 0 19px;
     padding-bottom: 36px;
@@ -25,7 +25,8 @@
   .footer__copyright {
     font-size: 14px;
     line-height: 1.21;
-    max-width: 282px;
     margin-right: 0;
+    max-width: 282px;
   }
 }
+

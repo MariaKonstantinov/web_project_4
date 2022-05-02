@@ -7,8 +7,12 @@
   width: 21px;
   height: 19px;
   align-self: center;
-  padding-left: 26px;
+  padding-left: 25px;
   background: url(../images/button_like.svg) no-repeat center;
+}
+
+.button_style_like:hover {
+  opacity: 60%;
 }
 
 .button_type_add {
@@ -83,7 +87,7 @@
   color: white;
   background-color: black;
   margin: 48px 36px 36.51px;
-  padding: 11.66px 122px 16.49px 123px;
+  height: 50.15px;
   font-weight: 400;
   font-size: 18px;
   line-height: 1.2;

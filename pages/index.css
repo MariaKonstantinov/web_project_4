@@ -5,6 +5,9 @@
 /*Block - Root*/
 @import url(../blocks/root.css);
 
+/*Block - Content*/
+@import url(../blocks/content.css);
+
 /*Block - Popup*/
 @import url(../blocks/popup.css);
 
