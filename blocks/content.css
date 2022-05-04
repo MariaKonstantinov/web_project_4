@@ -1,13 +1,11 @@
 .content {
-    max-width: 880px;
-    margin: 0px auto;
-  }
-  
-  @media screen and (max-width: 900px) {
-    .content {
-      margin-left: 19px;
-      margin-right: 19px;
-    }
-  }
+  max-width: 880px;
+  margin: 0px auto;
+}
 
-
+@media screen and (max-width: 900px) {
+  .content {
+    margin-left: 19px;
+    margin-right: 19px;
+  }
+}
