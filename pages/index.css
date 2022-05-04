@@ -26,5 +26,8 @@
 /*Block - Cards*/
 @import url(../blocks/cards.css);
 
+/*Block - Card*/
+@import url(../blocks/card.css);
+
 /*Block - Footer*/
 @import url(../blocks/footer.css);
