@@ -15,6 +15,10 @@
   opacity: 60%;
 }
 
+.button_style_like-active {
+  background: url(../../../images/button_like-active.svg) no-repeat center;
+}
+
 .button_type_add {
   display: flex;
   justify-content: center;
@@ -107,5 +111,33 @@
     margin: 46px 22px 25px;
     height: 46px;
     font-size: 14px;
+  }
+}
+
+.button_type_trash {
+  position: absolute;
+  width: 18px;
+  height: 19px;
+  top: 18px;
+  right: 15px;
+  cursor: pointer;
+  transition: opacity 0.5s;
+}
+
+.button_type_trash:hover {
+  opacity: 50%;
+}
+
+.button_type_zoom-card {
+  top: -40px;
+  right: -40px;
+}
+
+@media screen and (max-width: 768px) {
+  .button_type_close-preview {
+    right: -30px;
+    top: -30px;
+    width: 30px;
+    height: 30px;
   }
 }
