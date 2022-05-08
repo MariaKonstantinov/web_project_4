@@ -9,14 +9,11 @@
   align-self: center;
   padding-left: 26px;
   background: url(../images/button_like.svg) no-repeat center;
-}
-
-.button_style_like:hover {
-  opacity: 60%;
+  cursor: pointer;
 }
 
 .button_style_like-active {
-  background: url(../../../images/button_like-active.svg) no-repeat center;
+  background: url(../images/button_like-active.svg) no-repeat center;
 }
 
 .button_type_add {
@@ -52,6 +49,7 @@
   right: -10%;
   background: url(../images/buttton_close.svg) no-repeat center;
   background-size: 100%;
+  cursor: pointer;
 }
 
 .button_type_close:hover {
@@ -100,6 +98,7 @@
   line-height: 1.2;
   border-radius: 2px;
   text-align: center;
+  cursor: pointer;
 }
 
 .button_type_submit:hover {
