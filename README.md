@@ -26,9 +26,11 @@ HTML5, CSS3, JavaScript, Flexbox, Grid Layout, flat BEM, Media Queries.
 
 **Project Roadmap**
 
-* Sprint 1 => Created a simple one-page website created using HTML5 and CSS3. Added responsiveness (max 1280px -> browser, min 320px -> mobile). Basic popup box created using JavaScript (input text values - "name", "about me", save-button and close-button). Users are able now to edit their profile data.
+* Sprint 1 => Created a simple one-page website created using HTML5 and CSS3. Added responsiveness (max 1280px -> browser, min 320px -> mobile). "Edit Profile" popup form created (input text values - "name", "about me", save-button and close-button). Users are able now to edit their profile data.
 
-* Sprint 2 => Added second popup box using JavaScript (input text values - "place name", "place link", create-button and close-button). Users are able now to add a new card to the existing ones. Added delete-button with functionality to delete a card. Added functionality to heart-icon (when clicked - it changes color from transparent to black).
+* Sprint 2 => Added "Edit Place Card" popup form (input text values - "place name", "place link", create-button and close-button). Users are able now to add a new card to the existing ones. Added delete-button with functionality to delete a card. Added functionality to heart-icon (when clicked - it changes color from transparent to black).
+
+* Sprint 3 => Added validation to all popup forms. Added functionality to close popups by clicking outside popup form and pressing "Escape" button.
 
 In the future Sprints more functionality will be added.
 

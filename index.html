@@ -14,29 +14,44 @@
 </head>
 
 <body class="root">
+    <!-- Popup form type Edit Profile -->
     <div class="popup popup_type_edit-profile">
         <div class="popup__window">
             <button type="button" class="button button_type_close" aria-label="close"></button>
             <h2 class="popup__title">Edit profile</h2>
-            <form class="popup__form" name="profileEditForm">
+            <form class="popup__form" name="profileEditForm" novalidate>
+                <!-- Edit Profile - name input -->
                 <input type="text" required="required" class="popup__input popup__input_type_name"
-                    name="profileFormNameInput" placeholder="Your name">
+                    name="profileFormNameInput" placeholder="Your name" minlength="2" maxlength="40"
+                    id="profile-edit-form-name-input">
+                <span id="profile-edit-form-name-input-error" class = "popup__form-error"></span>
+                <!-- Edit Profile - job input -->
                 <input type="text" required="required" class="popup__input popup__input_type_job"
-                    name="profileFormJobInput" placeholder="Your job">
+                    name="profileFormJobInput" placeholder="Your job" minlength="2" maxlength="200"
+                    id="profile-edit-form-job-input">
+                <span id="profile-edit-form-job-input-error" class = "popup__form-error"></span>
+
                 <button type="submit" class="button button_type_submit" aria-label="submit">Save</button>
             </form>
         </div>
     </div>
-
+    <!-- Popup form type Add New Card -->
     <div class="popup popup_type_new-card">
         <div class="popup__window">
             <button type="button" class="button button_type_close" aria-label="close"></button>
             <h2 class="popup__title">New place</h2>
-            <form class="popup__form" name="newCardAddForm">
+            <form class="popup__form" name="newCardAddForm" novalidate>
+                <!-- New Card - image titile input -->
                 <input type="text" required="required" class="popup__input popup__input_type_image-title"
-                    name="newCardFormImageTitleInput" placeholder="Title">
+                    name="newCardFormImageTitleInput" placeholder="Title" minlength="1" maxlength="30"
+                    id="card-add-form-title-input">
+                <span id="card-add-form-title-input-error" class = "popup__form-error"></span>
+                <!-- New Card - image link input -->
                 <input type="url" required="required" class="popup__input popup__input_type_image-link"
-                    name="newCardFormImageLinkInput" placeholder="Image link">
+                    name="newCardFormImageLinkInput" placeholder="Image link" 
+                    id="card-add-form-link-input">
+                <span id="card-add-form-link-input-error" class = "popup__form-error"></span>
+
                 <button type="submit" class="button button_type_submit" aria-label="submit">Create</button>
             </form>
         </div>
@@ -61,6 +76,7 @@
             </button>
         </section>
 
+        <!-- Popup type Zoom Card -->
         <section class="popup popup_type_zoom-card">
             <div class="popup__window popup__zoom-wrapper">
                 <button class="button button_type_close button_type_zoom-card" type="button" aria-label="close">
@@ -91,7 +107,8 @@
         </li>
     </template>
 
-    <script src="./scripts/script.js"></script>
+    <script src="./scripts/script.js" defer></script>
+    <script src="./scripts/validation.js" defer></script>
 </body>
 
 </html>
