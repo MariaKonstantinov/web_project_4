@@ -8,11 +8,6 @@ const configObject = {
   errorClass: "popup__form-error_visible",
 }
 
-// not sure if i need to declare them as follows
-const formElement = document.querySelectorAll(".popup__form");
-const inputElement = document.querySelectorAll(".popup__input");
-
-
 //  Function ShowInputError
 function showInputError(formElement, inputElement, {inputErrorClass, errorClass}) {
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
@@ -72,8 +67,6 @@ function setEventListeners(formElement, configObject) {
   const buttonElement = formElement.querySelector(`${configObject.submitButtonSelector}`);
   changeButtonState(inputList, buttonElement, configObject);
 
-  // console.log(inputList); -> within function it sees inputList, but not in global !!!!
-
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", () => {
       checkInputValidity(formElement, inputElement, configObject)
@@ -82,14 +75,21 @@ function setEventListeners(formElement, configObject) {
   })
 }
 
+// Remaining:
+// Function to close all popsup by clicking anywhere on the page -> code and move to main js file to general functions
+
+
+
+
 // Function Enable Validation
-function enableValidation(configObject) {
-  const forms = document.querySelectorAll(settings.formSelector);
+function enableValidation(settings) {
+  const formList = Array.from(document.querySelectorAll(settings.formSelector));
 
   formList.forEach((formElement) => {
     formElement.addEventListener('submit', (evt) => evt.preventDefault);
-    setEventListeners(formElement, configObject);
+    setEventListeners(formElement, settings);
   })
+  console.log(formList);
 }
 
-
+enableValidation(configObject);

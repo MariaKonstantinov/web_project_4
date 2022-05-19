@@ -42,12 +42,20 @@ function closePopup(popupForm) {
 const cardsListElement = document.querySelector(".cards__grid");
 const cardTemplateElement = document.querySelector("#card-template");
 
-/** Enable Close Button to Close All Popups */
+/** Enable Close Button to Close All Popups by Pressing Close Button and Escape Button*/
 const popups = document.querySelectorAll(".popup");
 popups.forEach((popup) => {
   closeButton = popup.querySelector(".button_type_close");
   closeButton.addEventListener("click", () => closePopup(popup));
+  document.addEventListener("keydown", (evt) => {
+    console.log(evt.key);
+    if (evt.key === "Escape") {
+      closePopup(popup);
+    }
+  }
+  );
 });
+
 
 /** Function to Reset Popup Form Fields After Form Submission */
 function resetPopupForm(popup) {
