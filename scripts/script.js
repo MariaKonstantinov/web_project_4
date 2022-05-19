@@ -52,8 +52,17 @@ popups.forEach((popup) => {
     if (evt.key === "Escape") {
       closePopup(popup);
     }
-  }
-  );
+  });
+
+  // Function To Close Popup By Clicking On Overlay
+  document.addEventListener("click", (e) => {
+    if (
+      e.target.classList.contains("popup") ||
+      e.target.classList.contains("button_type_close")
+    ) {
+      closePopup(popup);
+    }
+  });
 });
 
 /** Function to Reset Popup Form Fields After Form Submission */
