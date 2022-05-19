@@ -75,12 +75,6 @@ function setEventListeners(formElement, configObject) {
   })
 }
 
-// Remaining:
-// Function to close all popsup by clicking anywhere on the page -> code and move to main js file to general functions
-
-
-
-
 // Function Enable Validation
 function enableValidation(settings) {
   const formList = Array.from(document.querySelectorAll(settings.formSelector));

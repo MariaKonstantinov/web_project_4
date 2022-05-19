@@ -56,7 +56,6 @@ popups.forEach((popup) => {
   );
 });
 
-
 /** Function to Reset Popup Form Fields After Form Submission */
 function resetPopupForm(popup) {
   const popupFormElement = popup.querySelector(".popup__form");
