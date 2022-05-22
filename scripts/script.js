@@ -27,15 +27,33 @@ const initialCards = [
 ];
 
 /** Utility functions and variables -------------------------------------------- */
+// Function to close opened popup on Escape
+function closeWithEsc(event) {
+  if (event.key === "Escape") {
+    const openedPopup = document.querySelector(".popup_opened");
+    closePopup(openedPopup)
+  }
+} 
 
-/** Function to Open Popup */
-function openPopup(popupForm) {
-  popupForm.classList.add("popup_opened");
+// Function to close opened popup on click
+function closePopupByOverlayClick(event) {
+  if (event.target === event.currentTarget) { 
+    closePopup(event.target)
+  }
 }
 
-/** Function to Close Popup */
+/** Function to Open Popup with closeWithEsc and OverlayClick enabled */
+function openPopup(popupForm) {
+  popupForm.classList.add("popup_opened");
+  document.addEventListener("keydown", closeWithEsc);
+  popupForm.addEventListener("mousedown", closePopupByOverlayClick)
+}
+
+/** Function to Close Popup with closeWithEsc and OverlayClick enabled */
 function closePopup(popupForm) {
   popupForm.classList.remove("popup_opened");
+  document.removeEventListener("keydown", closeWithEsc)
+  popupForm.removeEventListener("mousedown", closePopupByOverlayClick) 
 }
 
 /** Utility Variables */
@@ -47,23 +65,8 @@ const popups = document.querySelectorAll(".popup");
 popups.forEach((popup) => {
   closeButton = popup.querySelector(".button_type_close");
   closeButton.addEventListener("click", () => closePopup(popup));
-  document.addEventListener("keydown", (evt) => {
-    console.log(evt.key);
-    if (evt.key === "Escape") {
-      closePopup(popup);
-    }
-  });
-
-  // Function To Close Popup By Clicking On Overlay
-  document.addEventListener("click", (e) => {
-    if (
-      e.target.classList.contains("popup") ||
-      e.target.classList.contains("button_type_close")
-    ) {
-      closePopup(popup);
-    }
-  });
-});
+}
+);
 
 /** Function to Reset Popup Form Fields After Form Submission */
 function resetPopupForm(popup) {
