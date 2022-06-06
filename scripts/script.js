@@ -31,14 +31,14 @@ const initialCards = [
 function closeWithEsc(event) {
   if (event.key === "Escape") {
     const openedPopup = document.querySelector(".popup_opened");
-    closePopup(openedPopup)
+    closePopup(openedPopup);
   }
-} 
+}
 
 // Function to close opened popup on click
 function closePopupByOverlayClick(event) {
-  if (event.target === event.currentTarget) { 
-    closePopup(event.target)
+  if (event.target === event.currentTarget) {
+    closePopup(event.target);
   }
 }
 
@@ -46,14 +46,14 @@ function closePopupByOverlayClick(event) {
 function openPopup(popupForm) {
   popupForm.classList.add("popup_opened");
   document.addEventListener("keydown", closeWithEsc);
-  popupForm.addEventListener("mousedown", closePopupByOverlayClick)
+  popupForm.addEventListener("mousedown", closePopupByOverlayClick);
 }
 
 /** Function to Close Popup with closeWithEsc and OverlayClick enabled */
 function closePopup(popupForm) {
   popupForm.classList.remove("popup_opened");
-  document.removeEventListener("keydown", closeWithEsc)
-  popupForm.removeEventListener("mousedown", closePopupByOverlayClick) 
+  document.removeEventListener("keydown", closeWithEsc);
+  popupForm.removeEventListener("mousedown", closePopupByOverlayClick);
 }
 
 /** Utility Variables */
@@ -65,8 +65,7 @@ const popups = document.querySelectorAll(".popup");
 popups.forEach((popup) => {
   closeButton = popup.querySelector(".button_type_close");
   closeButton.addEventListener("click", () => closePopup(popup));
-}
-);
+});
 
 /** Function to Reset Popup Form Fields After Form Submission */
 function resetPopupForm(popup) {
@@ -108,8 +107,14 @@ const imageTitleInput = document.querySelector(
 );
 const imageLinkInput = document.querySelector(".popup__input_type_image-link");
 
-/** Handlers definition */
+
+
+/** Handlers definition - fix Submit button here */
+const submitButton = document.querySelector(".button_type_submit");
 function handleAddButtonClick() {
+  //toggleButtonToDisabledState(submitButton, "button_type-submit_disabled");
+  submitButton.classList.add(".button_type-submit_disabled");
+  submitButton.disabled = true;
   openPopup(popupNewPlace);
 }
 
