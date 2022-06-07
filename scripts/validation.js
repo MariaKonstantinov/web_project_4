@@ -11,7 +11,7 @@ const configObject = {
 /** Function ShowInputError */
 function showInputError(formElement, inputElement, {inputErrorClass, errorClass}) {
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
-  inputElement.classList.add(`${inputErrorClass}`);
+  inputElement.classList.add(inputErrorClass);
   errorElement.textContent = inputElement.validationMessage;
   errorElement.classList.add(`${errorClass}`);
 }
@@ -63,7 +63,8 @@ function changeButtonState (inputList, buttonElement, {inactiveButtonClass}) {
 
 /** Setting Event Listeners */
 function setEventListeners(formElement, configObject) {
-  const inputList = Array.from(formElement.querySelectorAll(".popup__input"));
+  // const inputList = Array.from(formElement.querySelectorAll(".popup__input"));
+  const inputList = [...formElement.querySelectorAll(".popup__input")];
   const buttonElement = formElement.querySelector(`${configObject.submitButtonSelector}`);
   changeButtonState(inputList, buttonElement, configObject);
 

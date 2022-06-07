@@ -81,10 +81,15 @@ const nameInput = document.querySelector(".popup__input_type_name");
 const profileJob = document.querySelector(".profile__job");
 const jobInput = document.querySelector(".popup__input_type_job");
 
-/** Handlers definition */
-function handleEditButtonClick() {
+/* Function to fill the Edit Profile popup inputs */
+function fillEditProfileForm() {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
+}
+
+/** Handlers definition */
+function handleEditButtonClick() {
+  fillEditProfileForm();
   openPopup(popupProfile);
 }
 
@@ -107,13 +112,10 @@ const imageTitleInput = document.querySelector(
 );
 const imageLinkInput = document.querySelector(".popup__input_type_image-link");
 
-
-
-/** Handlers definition - fix Submit button here */
-const submitButton = document.querySelector(".button_type_submit");
+/** Handlers definition and submit button reset */
+const submitButton = document.querySelector(".button_type-submit_disabled");
 function handleAddButtonClick() {
-  //toggleButtonToDisabledState(submitButton, "button_type-submit_disabled");
-  submitButton.classList.add(".button_type-submit_disabled");
+  submitButton.classList.add("button_type-submit_disabled");
   submitButton.disabled = true;
   openPopup(popupNewPlace);
 }
