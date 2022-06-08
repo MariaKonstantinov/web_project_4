@@ -112,20 +112,24 @@ const imageTitleInput = document.querySelector(
 );
 const imageLinkInput = document.querySelector(".popup__input_type_image-link");
 
+
 /** Handlers definition and submit button reset */
-const submitButton = document.querySelector(".button_type-submit_disabled");
+// const submitButton = document.querySelector(".button_type-submit_disabled");
 function handleAddButtonClick() {
-  submitButton.classList.add("button_type-submit_disabled");
-  submitButton.disabled = true;
+  // submitButton.classList.add("button_type-submit_disabled");
+  // submitButton.disabled = true;
   openPopup(popupNewPlace);
 }
 
+const submitButton = document.querySelector(".button_type_submit");
 function handleAddFormSubmit(event) {
   event.preventDefault();
   const newCard = { name: imageTitleInput.value, link: imageLinkInput.value };
   cardsListElement.prepend(createCard(newCard));
   closePopup(popupNewPlace);
+  toggleButtonToDisabledState(submitButton, configObject); // Submit button has to be fixed
   resetPopupForm(popupNewPlace);
+  
 }
 
 /** Attach handlers */
