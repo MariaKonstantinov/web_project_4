@@ -81,7 +81,7 @@ const nameInput = document.querySelector(".popup__input_type_name");
 const profileJob = document.querySelector(".profile__job");
 const jobInput = document.querySelector(".popup__input_type_job");
 
-/* Function to fill the Edit Profile popup inputs */
+/** Function to fill the Edit Profile popup inputs */
 function fillEditProfileForm() {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
@@ -112,24 +112,18 @@ const imageTitleInput = document.querySelector(
 );
 const imageLinkInput = document.querySelector(".popup__input_type_image-link");
 
-
-/** Handlers definition and submit button reset */
-// const submitButton = document.querySelector(".button_type-submit_disabled");
 function handleAddButtonClick() {
-  // submitButton.classList.add("button_type-submit_disabled");
-  // submitButton.disabled = true;
+  toggleButtonToDisabledState(submitButton, configObject);
+  resetPopupForm(popupNewPlace);
   openPopup(popupNewPlace);
 }
 
-const submitButton = document.querySelector(".button_type_submit");
+const submitButton = popupNewPlace.querySelector(".button_type_submit");
 function handleAddFormSubmit(event) {
   event.preventDefault();
   const newCard = { name: imageTitleInput.value, link: imageLinkInput.value };
   cardsListElement.prepend(createCard(newCard));
   closePopup(popupNewPlace);
-  toggleButtonToDisabledState(submitButton, configObject); // Submit button has to be fixed
-  resetPopupForm(popupNewPlace);
-  
 }
 
 /** Attach handlers */
