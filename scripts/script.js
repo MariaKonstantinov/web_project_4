@@ -1,3 +1,27 @@
+import FormValidator from "./FormValidator.js";
+
+/** storing configObject in settings variable */
+const settings = {
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".button_type_submit",
+  inactiveButtonClass: "button_type-submit_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__form-error_visible",
+};
+
+/** selecting edit profile and add card popup forms */
+const editProfileForm = document.querySelector(".popup_type_edit-profile");
+const addCardForm = document.querySelector(".popup_type_new-card");
+
+/** creating new instances of editProfileFormValidator and addCardFormValidator classes */
+const editProfileFormValidator = new FormValidator(settings, editProfileForm);
+const addCardFormValidator = new FormValidator(settings, addCardForm);
+
+
+editProfileFormValidator.enableValidation()
+addCardFormValidator.enableValidation()
+
+
 /** Six Cards - Links */
 const initialCards = [
   {
@@ -89,6 +113,7 @@ function fillEditProfileForm() {
 
 /** Handlers definition */
 function handleEditButtonClick() {
+  editProfileFormValidator.resetValidation();
   fillEditProfileForm();
   openPopup(popupProfile);
 }
@@ -113,6 +138,7 @@ const imageTitleInput = document.querySelector(
 const imageLinkInput = document.querySelector(".popup__input_type_image-link");
 
 function handleAddButtonClick() {
+  addCardFormValidator.resetValidation();
   toggleButtonToDisabledState(submitButton, configObject);
   resetPopupForm(popupNewPlace);
   openPopup(popupNewPlace);
