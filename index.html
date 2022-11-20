@@ -14,7 +14,44 @@
 </head>
 
 <body class="root">
-    <!-- Popup form type Edit Profile -->
+
+    <!-- SECTION Header class - HEADER --------------------------------------------------------->
+    <header class="header">
+        <img class="logo" src="./images/around_logo_header.svg" alt="Around the U.S. text logo">
+    </header>
+
+    <!-- SECTION Main class - CONTENT ---------------------------------------------------------->
+    <main class="content">
+
+        <!-- Section class - PROFILE -->
+        <section class="profile">
+            <img class="profile__image" src="./images/profile-image.png" alt="Jacques Cousteau image">
+            <div class="profile__info">
+                <div class="profile__wrapper">
+                    <h1 class="profile__name">Jacques Cousteau</h1>
+                    <button type="button" class="button button_type_edit" aria-label="edit"></button>
+                </div>
+                <p class="profile__job">Explorer</p>
+            </div>
+            <button type="button" class="button button_type_add" aria-label="add">
+                <img src="./images/button_add.svg" alt="plus symbol">
+            </button>
+        </section>
+
+        <!-- Section class - CARDS -->
+        <section class="cards">
+            <ul class="cards__grid"></ul>
+        </section>
+    </main>
+
+    <!-- SECTION Footer class - FOOTER ---------------------------------------------------------->
+    <footer class="footer">
+        <p class="footer__copyright">&copy; 2022 Around The U.S.</p>
+    </footer>
+
+
+    <!-- SECTION POPUPS ----------------------------------------------------------->
+    <!-- Popup form type - EDIT PROFILE --------------------------------------------------------->
     <div class="popup popup_type_edit-profile">
         <div class="popup__window">
             <button type="button" class="button button_type_close" aria-label="close"></button>
@@ -35,7 +72,8 @@
             </form>
         </div>
     </div>
-    <!-- Popup form type Add New Card -->
+
+    <!-- Popup form type - ADD NEW CARD --------------------------------------------------------->
     <div class="popup popup_type_new-card">
         <div class="popup__window">
             <button type="button" class="button button_type_close" aria-label="close"></button>
@@ -57,44 +95,17 @@
         </div>
     </div>
 
-    <header class="header">
-        <img class="logo" src="./images/around_logo_header.svg" alt="Around the U.S. text logo">
-    </header>
-
-    <main class="content">
-        <section class="profile">
-            <img class="profile__image" src="./images/profile-image.png" alt="Jacques Cousteau image">
-            <div class="profile__info">
-                <div class="profile__wrapper">
-                    <h1 class="profile__name">Jacques Cousteau</h1>
-                    <button type="button" class="button button_type_edit" aria-label="edit"></button>
-                </div>
-                <p class="profile__job">Explorer</p>
-            </div>
-            <button type="button" class="button button_type_add" aria-label="add">
-                <img src="./images/button_add.svg" alt="plus symbol">
+    <!-- Popup type - ZOOM CARD ----------------------------------------------------------->
+    <section class="popup popup_type_zoom-card">
+        <div class="popup__window popup__zoom-wrapper">
+            <button class="button button_type_close button_type_zoom-card" type="button" aria-label="close">
             </button>
-        </section>
+            <img class="popup__zoom-image" src="#" alt="#" />
+            <p class="popup__zoom-title"></p>
+        </div>
+    </section>
 
-        <!-- Popup type Zoom Card -->
-        <section class="popup popup_type_zoom-card">
-            <div class="popup__window popup__zoom-wrapper">
-                <button class="button button_type_close button_type_zoom-card" type="button" aria-label="close">
-                </button>
-                <img class="popup__zoom-image" src="#" alt="#" />
-                <p class="popup__zoom-title"></p>
-            </div>
-        </section>
-
-        <section class="cards">
-            <ul class="cards__grid"></ul>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <p class="footer__copyright">&copy; 2022 Around The U.S.</p>
-    </footer>
-
+    <!-- SECTION Template type - CARD TEMPLATE -------------------------------------------------->
     <template id="card-template">
         <li class="card">
             <button type="button" class="button" aria-label="trash">
@@ -107,11 +118,10 @@
         </li>
     </template>
 
-    <script type="module" src="./scripts/FormValidator.js" defer></script>
-
-    <!-- <script type="module" src="./scripts/validation.js" defer></script> -->
-
-    <script src="./scripts/script.js" defer></script>
+    <!-- TODO REMOVE FILE LATER - only one file needs to be connected -->
+    <!-- <script src="./scripts/validation.js" defer></script> -->
+    <!-- ROOT JS FILE -->
+    <script type="module" src="./scripts/script.js"></script>
 
 </body>
 
