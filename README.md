@@ -1,42 +1,56 @@
-# Project 4: Around The U.S.
+# Project 4: Plant Lovers :seedling:
 
-### Practicum by Yandex Web Development Program 2021-2022
+### Practicum by Yandex Web Development Program 2022-2023
 
-### Overview
+### :four_leaf_clover: Overview
 
-* Project Purpose
-* Poject Description
-* Project Technologies
-* Poject Roadmap
-* Project Link (Figma)
-* Project Link
+- Project Concept
+- Project Functionality
+- Poject Description
+- Project Technologies
+- Poject Roadmap
+- Project Link (Figma)
+- Project Link
 
+**:four_leaf_clover: Project Concept**
 
-**Project Purpose**
+The concept of this project - plant lovers social media app - is to help people who love plants create their profile pages where they can upload photos of their plants.
 
-The purpose of the project is to build an interactive web page where users can add, remove, or like photos.
+The initial concept of project according to Figma design - was to build a social media app for people to share their travel photos. The initial design of this project was mainly focused on building a page for travelers across the U.S. The initial design concept was reworked according to persoanal preferences and idea, thus turning into a plant lovers social media app.
 
-**Project Description**
+**:four_leaf_clover: Project Functionality**
 
-A simple one-page website created using HTML5, CSS3 and JavaScript in compliance with specifications from Figma. The project is build with the technologies which provide responsiveness to all the elements so they are correctly displayed on popular screen sizes (max 1280px - browser, min 320px - mobile). JavaScript is used to add functionality to Form Fields in a Popup Box and save the edited values. BEM methodology used (flat file structure). 
+The functionality of this project is to build an interactive web page where users can add, remove, or like photos.
 
-**Project Technologies**
+**:four_leaf_clover: Project Description**
 
-HTML5, CSS3, JavaScript, Flexbox, Grid Layout, flat BEM, Media Queries. 
+A simple one-page website created using HTML5, CSS3 and JavaScript in compliance with specifications from Figma. The project is build with the technologies which provide responsiveness to all the elements so they are correctly displayed on popular screen sizes (max 1280px - browser, min 320px - mobile). JavaScript is used to add functionality to Form Fields in a Popup Box and save the edited values. BEM methodology used (flat file structure).
 
-**Project Roadmap**
+**:four_leaf_clover: Project Technologies**
 
-* Sprint 1 => Created a simple one-page website created using HTML5 and CSS3. Added responsiveness (max 1280px -> browser, min 320px -> mobile). "Edit Profile" popup form created (input text values - "name", "about me", save-button and close-button). Users are able now to edit their profile data.
+HTML5, CSS3, JavaScript, Flexbox, Grid Layout, flat BEM, Media Queries.
 
-* Sprint 2 => Added "Edit Place Card" popup form (input text values - "place name", "place link", create-button and close-button). Users are able now to add a new card to the existing ones. Added delete-button with functionality to delete a card. Added functionality to heart-icon (when clicked - it changes color from transparent to black).
+**:four_leaf_clover: Project Roadmap**
 
-* Sprint 3 => Added validation to all popup forms. Added functionality to close popups by clicking outside popup form and pressing "Escape" button.
+**- Front End Part -**
+
+- Sprint 1 => Create a simple one-page website created using HTML5 and CSS3. Add responsiveness (max 1280px -> browser, min 320px -> mobile). "Edit Profile" popup form created (input text values - "name", "about me", save-button and close-button). Users are able now to edit their profile data.
+
+- Sprint 2 => Add "Edit Place Card" popup form (input text values - "place name", "place link", create-button and close-button). Users are able now to add a new card to the existing ones. Added delete-button with functionality to delete a card. Added functionality to heart-icon (when clicked - it changes color from transparent to black).
+
+- Sprint 3 => Add validation to all popup forms. Add functionality to close popups by clicking outside popup form and pressing "Escape" button.
+
+- Sprint 4 => Refactor code according to Object Oriented Programming main principles:
+
+1. Create Card class (which creates a card with text and an image link) and FormValidator class (which sets settings for validating form fields), create an instance of the FormValidator class for each form that should be validated.
+2. Divide the JavaScript code into modules: Card.js contains the code of the Card class, FormValidator.js contains the code of the FormValidator class, utils.js contains the event handlers and the function that opens/closes modal windows, index.js contains the rest of the code.
 
 In the future Sprints more functionality will be added.
 
-**Project Link (Figma)**
+**:four_leaf_clover: Project Link (Figma) - initial design**
 
-* [Project Link in Figma](https://www.figma.com/file/SurN1jaeEQIhuZEDMhmWWf/Sprint-4-Around-The-U.S.-desktop-mobile?node-id=0%3A1)
+- [Project Link in Figma](https://www.figma.com/file/SurN1jaeEQIhuZEDMhmWWf/Sprint-4-Around-The-U.S.-desktop-mobile?node-id=0%3A1)
 
-**Project Link**
-* [Project Link](https://mariakonstantinov.github.io/web_project_4/)
+**:four_leaf_clover: Project Link**
+
+- [Project Link](https://mariakonstantinov.github.io/web_project_4/)

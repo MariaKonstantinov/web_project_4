@@ -1,10 +1,14 @@
 /** My configObject */
-const configObject = {
+export const configObject = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
   submitButtonSelector: ".button_type_submit",
+
+  //   css class for error state (button block)
   inactiveButtonClass: "button_type-submit_disabled",
+  //   css class for error state (popup block)
   inputErrorClass: "popup__input_type_error",
+  //   css class for error state (popup block)
   errorClass: "popup__form-error_visible",
 };
 
@@ -14,10 +18,14 @@ function showInputError(
   inputElement,
   { inputErrorClass, errorClass }
 ) {
+  // selecting all input elements by ID
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
   inputElement.classList.add(inputErrorClass);
+  //   customizing default validationMessage property
   errorElement.textContent = inputElement.validationMessage;
-  errorElement.classList.add(`${errorClass}`);
+  errorElement.classList.add(errorClass);
+
+  console.log(inputElement.id);
 }
 
 /** Function HideInputError */
@@ -26,10 +34,12 @@ function hideInputError(
   inputElement,
   { inputErrorClass, errorClass }
 ) {
+  // selecting all input elements by ID
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
-  inputElement.classList.remove(`${inputErrorClass}`);
+  inputElement.classList.remove(inputErrorClass);
+  //   resetting the error
   errorElement.textContent = " ";
-  errorElement.classList.remove(`${errorClass}`);
+  errorElement.classList.remove(errorClass);
 }
 
 /** Function CheckInputValidity */
@@ -48,15 +58,18 @@ function hasInvalidInput(inputList) {
   });
 }
 
-/** Function to Toggle Submit Button to Disabled State */
-function toggleButtonToDisabledState(buttonElement, { inactiveButtonClass }) {
-  buttonElement.classList.add(`${inactiveButtonClass}`);
+/** Function to set Toggle Submit Button to Disabled State */
+export function toggleButtonToDisabledState(
+  buttonElement,
+  { inactiveButtonClass }
+) {
+  buttonElement.classList.add(inactiveButtonClass);
   buttonElement.disabled = true;
 }
 
 /** Function to remove Toggle Submit Button to Disabled State */
 function toggleButtonToEnabledState(buttonElement, { inactiveButtonClass }) {
-  buttonElement.classList.remove(`${inactiveButtonClass}`);
+  buttonElement.classList.remove(inactiveButtonClass);
   buttonElement.disabled = false;
 }
 
@@ -73,7 +86,7 @@ function changeButtonState(inputList, buttonElement, { inactiveButtonClass }) {
 function setEventListeners(formElement, configObject) {
   const inputList = [...formElement.querySelectorAll(".popup__input")];
   const buttonElement = formElement.querySelector(
-    `${configObject.submitButtonSelector}`
+    configObject.submitButtonSelector
   );
   changeButtonState(inputList, buttonElement, configObject);
 
@@ -93,8 +106,6 @@ function enableValidation(settings) {
     formElement.addEventListener("submit", (evt) => evt.preventDefault);
     setEventListeners(formElement, settings);
   });
-
-  console.log(settings);
 }
 
 enableValidation(configObject);
