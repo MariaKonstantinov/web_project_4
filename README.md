@@ -36,7 +36,7 @@ HTML5, CSS3, JavaScript, Flexbox, Grid Layout, flat BEM, Media Queries.
 
 - Sprint 1 => Create a simple one-page website created using HTML5 and CSS3. Add responsiveness (max 1280px -> browser, min 320px -> mobile). "Edit Profile" popup form created (input text values - "name", "about me", save-button and close-button). Users are able now to edit their profile data.
 
-- Sprint 2 => Add "Edit Place Card" popup form (input text values - "place name", "place link", create-button and close-button). Users are able now to add a new card to the existing ones. Added delete-button with functionality to delete a card. Added functionality to heart-icon (when clicked - it changes color from transparent to black).
+- Sprint 2 => Add "Add Card" popup form (input text values - "title", "image link", create-button and close-button). Users are able now to add a new image card to the existing ones. Added delete-button with functionality to delete a card. Added functionality to "like" the images by clicking on heart-icon (when clicked - it changes color from transparent to black).
 
 - Sprint 3 => Add validation to all popup forms. Add functionality to close popups by clicking outside popup form and pressing "Escape" button.
 
