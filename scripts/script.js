@@ -1,5 +1,7 @@
-import "./validation.js";
+// IMPORTS
 import { toggleButtonToDisabledState, configObject } from "./validation.js";
+import { FormValidator } from "./FormValidator.js";
+import { openPopup, closePopup } from "./utils.js";
 
 /** Six Cards - Links */
 const initialCards = [
@@ -33,36 +35,6 @@ const initialCards = [
     link: "https://i.pinimg.com/564x/61/82/1a/61821adc2d24e1a7e3fca7c09f00066f.jpg",
   },
 ];
-
-/** Utility functions and variables -------------------------------------------- */
-// Function to close opened popup on Escape
-function closeWithEsc(event) {
-  if (event.key === "Escape") {
-    const openedPopup = document.querySelector(".popup_opened");
-    closePopup(openedPopup);
-  }
-}
-
-// Function to close opened popup on click
-function closePopupByOverlayClick(event) {
-  if (event.target === event.currentTarget) {
-    closePopup(event.target);
-  }
-}
-
-/** Function to Open Popup with closeWithEsc and OverlayClick enabled */
-function openPopup(popupForm) {
-  popupForm.classList.add("popup_opened");
-  document.addEventListener("keydown", closeWithEsc);
-  popupForm.addEventListener("mousedown", closePopupByOverlayClick);
-}
-
-/** Function to Close Popup with closeWithEsc and OverlayClick enabled */
-function closePopup(popupForm) {
-  popupForm.classList.remove("popup_opened");
-  document.removeEventListener("keydown", closeWithEsc);
-  popupForm.removeEventListener("mousedown", closePopupByOverlayClick);
-}
 
 /** Utility Variables */
 const cardsListElement = document.querySelector(".cards__grid");
@@ -192,3 +164,24 @@ function renderInitialCards() {
 }
 
 renderInitialCards();
+
+// creating a new formValidator class instance
+const settings = {
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".button_type_submit",
+
+  //   css class for error state (button block)
+  inactiveButtonClass: "button_type-submit_disabled",
+  //   css class for error state (popup block)
+  inputErrorClass: "popup__input_type_error",
+  //   css class for error state (popup block)
+  errorClass: "popup__form-error_visible",
+};
+
+const formList = Array.from(document.querySelectorAll(".popup__form"));
+formList.forEach((formElement) => {
+  const formValidator = new FormValidator(settings, formElement);
+
+  // we have all our methods and properties accessed after dot, but we can only use a public method here which is enableValidation
+  formValidator.enableValidation();
+});
