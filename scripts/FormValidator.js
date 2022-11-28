@@ -4,7 +4,6 @@
 // FormValidator class has 1 public method enableValidation(), which enables form validation.
 // Create an instance of the FormValidator class for each form that should be validated.
 // Note: Class is like an "instruction", like a "function"; it doesn't do anything by itself unless we create an instance of a class.
-
 // we save each of the classes on our "this" object which will be unique for each of the form validator
 export class FormValidator {
   constructor(settings, formElement) {
@@ -82,8 +81,8 @@ export class FormValidator {
 
     inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
-        checkInputValidity(inputElement);
-        changeButtonState(inputList, buttonElement);
+        this._checkInputValidity(inputElement);
+        this._changeButtonState(inputList, buttonElement);
       });
     });
   }
