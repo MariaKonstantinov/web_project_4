@@ -1,5 +1,4 @@
 // IMPORTS
-// import { toggleButtonToDisabledState, configObject } from "./validation.js";
 import { FormValidator } from "./FormValidator.js";
 import { openPopup, closePopup } from "./utils.js";
 // import { Card } from "./Card.js";
@@ -37,6 +36,7 @@ const initialCards = [
   },
 ];
 
+// SETTINGS OBJECT ------------------------------------------------------------->
 const settings = {
   inputSelector: ".popup__input",
   submitButtonSelector: ".button_type_submit",
@@ -49,7 +49,7 @@ const settings = {
   errorClass: "popup__form-error_visible",
 };
 
-/** Utility Variables */
+/** CARD GRID / CARD TEMPLATE CONSTS ---------------------------------------------> */
 const cardsListElement = document.querySelector(".cards__grid");
 const cardTemplateElement = document.querySelector("#card-template");
 
@@ -66,8 +66,8 @@ function resetPopupForm(popup) {
   popupFormElement.reset();
 }
 
-/** Popup - Edit Profile -------------------------------------------- */
-// EDIT POPUP CONSTS
+/** SECTION ----------------------- POPUP - EDIT PROFILE ---------------------------------------------- */
+// EDIT PROFILE POPUP CONSTS
 const editButton = document.querySelector(".button_type_edit");
 const popupProfile = document.querySelector(".popup.popup_type_edit-profile");
 const profileName = document.querySelector(".profile__name");
@@ -75,7 +75,13 @@ const nameInput = document.querySelector(".popup__input_type_name");
 const profileJob = document.querySelector(".profile__job");
 const jobInput = document.querySelector(".popup__input_type_job");
 
-/** Function to fill the Edit Profile popup inputs ----------------------------->*/
+// selecting submit button on EDIT PROFILE POPUP
+const editPopup = document.querySelector(".popup_type_edit-profile");
+const editPopupSubmitButton = editPopup.querySelector(
+  settings.submitButtonSelector
+);
+
+/** Function to fill the Edit Profile popup inputs -----------------------------> */
 function fillEditProfileForm() {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
@@ -98,8 +104,8 @@ function handleEditFormSubmit(event) {
 editButton.addEventListener("click", handleEditButtonClick);
 popupProfile.addEventListener("submit", handleEditFormSubmit);
 
-/** ----------------------- Popup - New Card ---------------------------------------------- */
-// CARD POPUP CONSTS
+/** SECTION ----------------------- POPUP - NEW CARD ---------------------------------------------- */
+// NEW CARD POPUP CONSTS
 const addButton = document.querySelector(".button_type_add");
 const popupNewPlace = document.querySelector(".popup.popup_type_new-card");
 const imageTitleInput = document.querySelector(
@@ -111,24 +117,20 @@ const popUpImageZoom = document.querySelector(".popup_type_zoom-card");
 const imageZoom = document.querySelector(".popup__zoom-image");
 const imageZoomTitle = document.querySelector(".popup__zoom-title");
 
-// -------
-
 // selecting submit button on ADD CARD POPUP
 const addCardPopup = document.querySelector(".popup_type_new-card");
 const addCardPopupSubmitButton = addCardPopup.querySelector(
   settings.submitButtonSelector
 );
 
-// selecting submit button on EDIT POPUP
-const editPopup = document.querySelector(".popup_type_edit-profile");
-const editPopupSubmitButton = editPopup.querySelector(
-  settings.submitButtonSelector
-);
-
-// ------------------------------------------------>
-
+// POPUP Submit Button functionality
 function handleAddButtonClick() {
+  // selecting submit button on ADD CARD POPUP
+  addCardPopupSubmitButton.classList.add(settings.inactiveButtonClass);
   addCardPopupSubmitButton.disabled = true;
+
+  // selecting submit button on EDIT PROFILE POPUP
+  editPopupSubmitButton.classList.add(settings.inactiveButtonClass);
   editPopupSubmitButton.disabled = true;
 
   resetPopupForm(popupNewPlace);
@@ -199,7 +201,7 @@ function renderInitialCards() {
 
 renderInitialCards();
 
-// creating a new formValidator class instance ----------------------------->
+// SECTION creating a new formValidator class instance ----------------------------->
 
 const formList = Array.from(document.querySelectorAll(".popup__form"));
 formList.forEach((formElement) => {
@@ -209,6 +211,6 @@ formList.forEach((formElement) => {
   formValidator.enableValidation();
 });
 
-// creating a new Card class instance ----------------------------->
+// SECTION creating a new Card class instance ----------------------------->
 
 // const card = new Card(cardData, cardTemplateElement);
