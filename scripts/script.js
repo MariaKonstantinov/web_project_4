@@ -1,5 +1,5 @@
 // IMPORTS
-import { toggleButtonToDisabledState, configObject } from "./validation.js";
+// import { toggleButtonToDisabledState, configObject } from "./validation.js";
 import { FormValidator } from "./FormValidator.js";
 import { openPopup, closePopup } from "./utils.js";
 
@@ -92,13 +92,14 @@ const imageTitleInput = document.querySelector(
 );
 const imageLinkInput = document.querySelector(".popup__input_type_image-link");
 
+const submitButton = popupNewPlace.querySelector(".button_type_submit");
+
 function handleAddButtonClick() {
   toggleButtonToDisabledState(submitButton, configObject);
   resetPopupForm(popupNewPlace);
   openPopup(popupNewPlace);
 }
 
-const submitButton = popupNewPlace.querySelector(".button_type_submit");
 function handleAddFormSubmit(event) {
   event.preventDefault();
   const newCard = { name: imageTitleInput.value, link: imageLinkInput.value };

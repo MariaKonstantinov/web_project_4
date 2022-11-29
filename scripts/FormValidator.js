@@ -13,7 +13,7 @@ export class FormValidator {
     this._inputErrorClass = settings.inputErrorClass;
     this._errorClass = settings.errorClass;
 
-    this._formElement = settings.formElement;
+    this._formElement = formElement;
   }
 
   //   private method _showInputError()
@@ -79,7 +79,7 @@ export class FormValidator {
       this._submitButtonSelector
     );
 
-    changeButtonState(inputList, buttonElement);
+    // changeButtonState(inputList, buttonElement);
 
     inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
