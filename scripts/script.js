@@ -2,7 +2,7 @@
 // import { toggleButtonToDisabledState, configObject } from "./validation.js";
 import { FormValidator } from "./FormValidator.js";
 import { openPopup, closePopup } from "./utils.js";
-import { Card } from "./Card";
+// import { Card } from "./Card.js";
 
 /** Six Cards - Links */
 const initialCards = [
@@ -36,6 +36,18 @@ const initialCards = [
     link: "https://i.pinimg.com/564x/61/82/1a/61821adc2d24e1a7e3fca7c09f00066f.jpg",
   },
 ];
+
+const settings = {
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".button_type_submit",
+
+  //   css class for error state (button block)
+  inactiveButtonClass: "button_type-submit_disabled",
+  //   css class for error state (popup block)
+  inputErrorClass: "popup__input_type_error",
+  //   css class for error state (popup block)
+  errorClass: "popup__form-error_visible",
+};
 
 /** Utility Variables */
 const cardsListElement = document.querySelector(".cards__grid");
@@ -99,10 +111,26 @@ const popUpImageZoom = document.querySelector(".popup_type_zoom-card");
 const imageZoom = document.querySelector(".popup__zoom-image");
 const imageZoomTitle = document.querySelector(".popup__zoom-title");
 
+// -------
+
+// selecting submit button on ADD CARD POPUP
+const addCardPopup = document.querySelector(".popup_type_new-card");
+const addCardPopupSubmitButton = addCardPopup.querySelector(
+  settings.submitButtonSelector
+);
+
+// selecting submit button on EDIT POPUP
+const editPopup = document.querySelector(".popup_type_edit-profile");
+const editPopupSubmitButton = editPopup.querySelector(
+  settings.submitButtonSelector
+);
+
 // ------------------------------------------------>
 
 function handleAddButtonClick() {
-  toggleButtonToDisabledState(submitButton, configObject);
+  addCardPopupSubmitButton.disabled = true;
+  editPopupSubmitButton.disabled = true;
+
   resetPopupForm(popupNewPlace);
   openPopup(popupNewPlace);
 }
@@ -121,12 +149,12 @@ popupNewPlace.addEventListener("submit", handleAddFormSubmit);
 // ------------------------------------------------>
 
 /** TODO Popup - Zoom Image -------------------------------------------- */
-// function handleCardImageClick(event) {
-//   imageZoom.src = event.target.src;
-//   imageZoom.alt = event.target.alt;
-//   imageZoomTitle.textContent = event.target.alt;
-//   openPopup(popUpImageZoom);
-// } // done
+function handleCardImageClick(event) {
+  imageZoom.src = event.target.src;
+  imageZoom.alt = event.target.alt;
+  imageZoomTitle.textContent = event.target.alt;
+  openPopup(popUpImageZoom);
+} // done
 
 /** Create and Initialize a New Card Object ------------------------ */
 function createCard(card) {
@@ -172,17 +200,6 @@ function renderInitialCards() {
 renderInitialCards();
 
 // creating a new formValidator class instance ----------------------------->
-const settings = {
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".button_type_submit",
-
-  //   css class for error state (button block)
-  inactiveButtonClass: "button_type-submit_disabled",
-  //   css class for error state (popup block)
-  inputErrorClass: "popup__input_type_error",
-  //   css class for error state (popup block)
-  errorClass: "popup__form-error_visible",
-};
 
 const formList = Array.from(document.querySelectorAll(".popup__form"));
 formList.forEach((formElement) => {
@@ -194,4 +211,4 @@ formList.forEach((formElement) => {
 
 // creating a new Card class instance ----------------------------->
 
-const card = new Card(cardData, cardTemplateElement);
+// const card = new Card(cardData, cardTemplateElement);
