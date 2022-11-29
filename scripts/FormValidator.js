@@ -13,7 +13,7 @@ export class FormValidator {
     this._inputErrorClass = settings.inputErrorClass;
     this._errorClass = settings.errorClass;
 
-    this._formElement = formElement;
+    this._formElement = settings.formElement;
   }
 
   //   private method _showInputError()
@@ -71,13 +71,15 @@ export class FormValidator {
 
   //   private method _setEventListeners()
   _setEventListeners() {
-    const inputList = [
-      ...this._formElement.querySelectorAll(this._inputSelector),
-    ];
-    const buttonElement = this._formElement.querySelector(
-      this_.submitButtonSelector
+    const inputList = Array.from(
+      this._formElement.querySelectorAll(this._inputSelector)
     );
-    changeButtonState(inputList, buttonElement, configObject);
+
+    const buttonElement = this._formElement.querySelector(
+      this._submitButtonSelector
+    );
+
+    changeButtonState(inputList, buttonElement);
 
     inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
