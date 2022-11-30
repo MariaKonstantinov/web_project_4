@@ -31,9 +31,11 @@ export class Card {
     const cardTrashButtonElement =
       this._cardElement.querySelector(".button_type_trash");
     const cardImageElement = this._cardElement.querySelector(".card__image");
+    const cardTitleElement = this._cardElement.querySelector(".card__title");
 
     cardImageElement.src = this._link;
     cardImageElement.alt = this._name;
+    cardTitleElement.textContent = this_.name;
 
     // handlers
     cardLikeButtonElement.addEventListener(
@@ -49,7 +51,7 @@ export class Card {
 
   // public method to display card
   render() {
-    this._cardElement = cardTemplateElement.textContent
+    this._cardElement = cardTemplateElement.content
       .querySelector(".card")
       .cloneNode(true);
 

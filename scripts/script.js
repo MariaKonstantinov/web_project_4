@@ -174,8 +174,8 @@ popupNewPlace.addEventListener("submit", handleAddFormSubmit);
 //     .querySelector(".card") // done
 //     .cloneNode(true); // done
 
-//   const cardTitleElement = cardElement.querySelector(".card__title");
-//   cardTitleElement.textContent = card.name;
+// const cardTitleElement = cardElement.querySelector(".card__title");
+// cardTitleElement.textContent = card.name;
 
 //   const cardImageElement = cardElement.querySelector(".card__image"); // done
 //   cardImageElement.src = card.link; // done
@@ -215,6 +215,8 @@ formList.forEach((formElement) => {
 function renderInitialCards() {
   initialCards.forEach((cardData) => {
     const card = new Card(cardData, cardTemplateElement);
-    cardsListElement.prepend(createCard(card.render()));
+    cardsListElement.prepend(card.render());
   });
 }
+
+renderInitialCards();
