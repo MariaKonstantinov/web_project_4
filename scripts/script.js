@@ -1,7 +1,7 @@
 // IMPORTS
+import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
 import { openPopup, closePopup } from "./utils.js";
-// import { Card } from "./Card.js";
 
 /** Six Cards - Links */
 const initialCards = [
@@ -66,7 +66,7 @@ function resetPopupForm(popup) {
   popupFormElement.reset();
 }
 
-/** SECTION ----------------------- POPUP - EDIT PROFILE ---------------------------------------------- */
+/** SECTION ----------------------- POPUP - EDIT PROFILE ---------------------------------------- */
 // EDIT PROFILE POPUP CONSTS
 const editButton = document.querySelector(".button_type_edit");
 const popupProfile = document.querySelector(".popup.popup_type_edit-profile");
@@ -151,55 +151,55 @@ popupNewPlace.addEventListener("submit", handleAddFormSubmit);
 // ------------------------------------------------>
 
 /** TODO Popup - Zoom Image -------------------------------------------- */
-function handleCardImageClick(event) {
-  imageZoom.src = event.target.src;
-  imageZoom.alt = event.target.alt;
-  imageZoomTitle.textContent = event.target.alt;
-  openPopup(popUpImageZoom);
-} // done
+// function handleCardImageClick(event) {
+//   imageZoom.src = event.target.src;
+//   imageZoom.alt = event.target.alt;
+//   imageZoomTitle.textContent = event.target.alt;
+//   openPopup(popUpImageZoom);
+// } // done
 
 /** Create and Initialize a New Card Object ------------------------ */
-function createCard(card) {
-  /** TODO Function to Delete a Card */
-  function handleTrashButtonClick(event) {
-    event.target.closest(".card").remove();
-  } // done
+// function createCard(card) {
+//   /** TODO Function to Delete a Card */
+//   function handleTrashButtonClick(event) {
+//     event.target.closest(".card").remove();
+//   } // done
 
-  /** TODO Function to Change Heart Icon to Black Color - "like" */
-  function handleLikeButtonClick(event) {
-    event.target.classList.toggle("button_style_like-active");
-  } // done
+/** TODO Function to Change Heart Icon to Black Color - "like" */
+// function handleLikeButtonClick(event) {
+//   event.target.classList.toggle("button_style_like-active");
+// } // done
 
-  const cardElement = cardTemplateElement.content // done
-    .querySelector(".card") // done
-    .cloneNode(true); // done
+//   const cardElement = cardTemplateElement.content // done
+//     .querySelector(".card") // done
+//     .cloneNode(true); // done
 
-  const cardTitleElement = cardElement.querySelector(".card__title");
-  cardTitleElement.textContent = card.name;
+//   const cardTitleElement = cardElement.querySelector(".card__title");
+//   cardTitleElement.textContent = card.name;
 
-  const cardImageElement = cardElement.querySelector(".card__image"); // done
-  cardImageElement.src = card.link; // done
-  cardImageElement.alt = card.name; // done
+//   const cardImageElement = cardElement.querySelector(".card__image"); // done
+//   cardImageElement.src = card.link; // done
+//   cardImageElement.alt = card.name; // done
 
-  /** Attach handlers with callback functions */
-  const cardLikeButtonElement = cardElement.querySelector(".button_style_like"); // done
-  cardLikeButtonElement.addEventListener("click", handleLikeButtonClick); //done
+//   /** Attach handlers with callback functions */
+//   const cardLikeButtonElement = cardElement.querySelector(".button_style_like"); // done
+//   cardLikeButtonElement.addEventListener("click", handleLikeButtonClick); //done
 
-  const cardTrashButtonElement =
-    cardElement.querySelector(".button_type_trash"); // done
-  cardTrashButtonElement.addEventListener("click", handleTrashButtonClick); //done
+//   const cardTrashButtonElement =
+//     cardElement.querySelector(".button_type_trash"); // done
+//   cardTrashButtonElement.addEventListener("click", handleTrashButtonClick); //done
 
-  cardImageElement.addEventListener("click", handleCardImageClick); // done
+//   cardImageElement.addEventListener("click", handleCardImageClick); // done
 
-  return cardElement; // done
-}
+//   return cardElement; // done
+// }
 
 /** Function to Display All Cards */
-function renderInitialCards() {
-  initialCards.forEach((card) => cardsListElement.prepend(createCard(card)));
-}
+// function renderInitialCards() {
+//   initialCards.forEach((card) => cardsListElement.prepend(createCard(card)));
+// }
 
-renderInitialCards();
+// renderInitialCards();
 
 // SECTION creating a new formValidator class instance ----------------------------->
 
@@ -212,5 +212,9 @@ formList.forEach((formElement) => {
 });
 
 // SECTION creating a new Card class instance ----------------------------->
-
-// const card = new Card(cardData, cardTemplateElement);
+function renderInitialCards() {
+  initialCards.forEach((cardData) => {
+    const card = new Card(cardData, cardTemplateElement);
+    cardsListElement.prepend(createCard(card.render()));
+  });
+}

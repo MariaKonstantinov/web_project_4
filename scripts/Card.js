@@ -48,5 +48,13 @@ export class Card {
   }
 
   // public method to display card
-  render() {}
+  render() {
+    this._cardElement = cardTemplateElement.textContent
+      .querySelector(".card")
+      .cloneNode(true);
+
+    this._addEventListeners();
+
+    return this._cardElement;
+  }
 }
