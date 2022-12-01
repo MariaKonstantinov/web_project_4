@@ -34,8 +34,8 @@ export class Card {
     const cardTitleElement = this._cardElement.querySelector(".card__title");
 
     cardImageElement.src = this._link;
-    cardImageElement.alt = this._name;
-    cardTitleElement.textContent = this_.name;
+    cardImageElement.alt = this._text;
+    cardTitleElement.textContent = this._text;
 
     // handlers
     cardLikeButtonElement.addEventListener(
@@ -51,7 +51,7 @@ export class Card {
 
   // public method to display card
   render() {
-    this._cardElement = cardTemplateElement.content
+    this._cardElement = this._template.content
       .querySelector(".card")
       .cloneNode(true);
 

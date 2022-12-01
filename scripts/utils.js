@@ -1,5 +1,5 @@
 /** internal utility functions and variables -------------------------------------------- */
-// TODO Function to close opened popup on Escape
+// Function to close opened popup on Escape
 function closeWithEsc(event) {
   if (event.key === "Escape") {
     const openedPopup = document.querySelector(".popup_opened");
@@ -7,7 +7,7 @@ function closeWithEsc(event) {
   }
 }
 
-// TODO Function to close opened popup on click
+//  Function to close opened popup on click
 function closePopupByOverlayClick(event) {
   if (event.target === event.currentTarget) {
     closePopup(event.target);
@@ -15,14 +15,14 @@ function closePopupByOverlayClick(event) {
 }
 
 // export functions to open/close popup forms as we may use it externally
-/** TODO Function to Open Popup with closeWithEsc and OverlayClick enabled */
+/** Function to Open Popup with closeWithEsc and OverlayClick enabled */
 export function openPopup(popupForm) {
   popupForm.classList.add("popup_opened");
   document.addEventListener("keydown", closeWithEsc);
   popupForm.addEventListener("mousedown", closePopupByOverlayClick);
 }
 
-/** TODO Function to Close Popup with closeWithEsc and OverlayClick enabled */
+/**  Function to Close Popup with closeWithEsc and OverlayClick enabled */
 export function closePopup(popupForm) {
   popupForm.classList.remove("popup_opened");
   document.removeEventListener("keydown", closeWithEsc);

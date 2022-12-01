@@ -137,69 +137,18 @@ function handleAddButtonClick() {
   openPopup(popupNewPlace);
 }
 
+// function to create a new card
 function handleAddFormSubmit(event) {
   event.preventDefault();
-  const newCard = { name: imageTitleInput.value, link: imageLinkInput.value };
-  cardsListElement.prepend(createCard(newCard));
+  const cardData = { name: imageTitleInput.value, link: imageLinkInput.value };
+  const card = new Card(cardData, cardTemplateElement);
+  cardsListElement.prepend(card.render());
   closePopup(popupNewPlace);
 }
 
 /** Attach handlers */
 addButton.addEventListener("click", handleAddButtonClick);
 popupNewPlace.addEventListener("submit", handleAddFormSubmit);
-
-// ------------------------------------------------>
-
-/** TODO Popup - Zoom Image -------------------------------------------- */
-// function handleCardImageClick(event) {
-//   imageZoom.src = event.target.src;
-//   imageZoom.alt = event.target.alt;
-//   imageZoomTitle.textContent = event.target.alt;
-//   openPopup(popUpImageZoom);
-// } // done
-
-/** Create and Initialize a New Card Object ------------------------ */
-// function createCard(card) {
-//   /** TODO Function to Delete a Card */
-//   function handleTrashButtonClick(event) {
-//     event.target.closest(".card").remove();
-//   } // done
-
-/** TODO Function to Change Heart Icon to Black Color - "like" */
-// function handleLikeButtonClick(event) {
-//   event.target.classList.toggle("button_style_like-active");
-// } // done
-
-//   const cardElement = cardTemplateElement.content // done
-//     .querySelector(".card") // done
-//     .cloneNode(true); // done
-
-// const cardTitleElement = cardElement.querySelector(".card__title");
-// cardTitleElement.textContent = card.name;
-
-//   const cardImageElement = cardElement.querySelector(".card__image"); // done
-//   cardImageElement.src = card.link; // done
-//   cardImageElement.alt = card.name; // done
-
-//   /** Attach handlers with callback functions */
-//   const cardLikeButtonElement = cardElement.querySelector(".button_style_like"); // done
-//   cardLikeButtonElement.addEventListener("click", handleLikeButtonClick); //done
-
-//   const cardTrashButtonElement =
-//     cardElement.querySelector(".button_type_trash"); // done
-//   cardTrashButtonElement.addEventListener("click", handleTrashButtonClick); //done
-
-//   cardImageElement.addEventListener("click", handleCardImageClick); // done
-
-//   return cardElement; // done
-// }
-
-/** Function to Display All Cards */
-// function renderInitialCards() {
-//   initialCards.forEach((card) => cardsListElement.prepend(createCard(card)));
-// }
-
-// renderInitialCards();
 
 // SECTION creating a new formValidator class instance ----------------------------->
 
