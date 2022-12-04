@@ -146,6 +146,15 @@ function handleAddFormSubmit(event) {
   closePopup(popupNewPlace);
 }
 
+// zoom card function
+function handleCardImageClick(cardData) {
+  imageZoom.src = cardData.link;
+  imageZoom.alt = cardData.name;
+  imageZoomTitle.textContent = cardData.name;
+
+  openPopup(popUpImageZoom);
+}
+
 /** Attach handlers */
 addButton.addEventListener("click", handleAddButtonClick);
 popupNewPlace.addEventListener("submit", handleAddFormSubmit);
@@ -164,7 +173,7 @@ formList.forEach((formElement) => {
 function renderInitialCards() {
   initialCards.forEach((cardData) => {
     const card = new Card(cardData, cardTemplateElement);
-    cardsListElement.prepend(card.render());
+    cardsListElement.prepend(card.render(handleCardImageClick));
   });
 }
 

@@ -16,13 +16,13 @@ export class Card {
     event.target.closest(".card").remove();
   }
 
-  // method to preview (zoom) a card
-  _handleCardImageClick(event) {
-    imageZoom.src = event.target.src;
-    imageZoom.alt = event.target.alt;
-    imageZoomTitle.textContent = event.target.alt;
-    openPopup(popUpImageZoom);
-  }
+  // BUG method to preview (zoom) a card
+  // _handleCardImageClick(event) {
+  //   imageZoom.src = this._target.src;
+  //   imageZoom.alt = this._target.alt;
+  //   imageZoomTitle.textContent = this._target.alt;
+  //   openPopup(popUpImageZoom);
+  // }
 
   // EVENT LISTENERS
   _addEventListeners() {
@@ -46,16 +46,22 @@ export class Card {
       "click",
       this._handleTrashButtonClick
     );
-    cardImageElement.addEventListener("click", this._handleCardImageClick);
+    // cardImageElement.addEventListener("click", this._handleCardImageClick);
   }
 
   // public method to display card
-  render() {
+  render(handleCardImageClick) {
     this._cardElement = this._template.content
       .querySelector(".card")
       .cloneNode(true);
 
     this._addEventListeners();
+
+    const cardImageElement = this._cardElement.querySelector(".card__image");
+    const cardData = { name: this._text, link: this._link };
+    cardImageElement.addEventListener("click", () =>
+      handleCardImageClick(cardData)
+    );
 
     return this._cardElement;
   }
