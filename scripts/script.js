@@ -125,14 +125,6 @@ const addCardPopupSubmitButton = addCardPopup.querySelector(
 
 // POPUP Submit Button functionality
 function handleAddButtonClick() {
-  // selecting submit button on ADD CARD POPUP
-  addCardPopupSubmitButton.classList.add(settings.inactiveButtonClass);
-  addCardPopupSubmitButton.disabled = true;
-
-  // selecting submit button on EDIT PROFILE POPUP
-  editPopupSubmitButton.classList.add(settings.inactiveButtonClass);
-  editPopupSubmitButton.disabled = true;
-
   resetPopupForm(popupNewPlace);
   openPopup(popupNewPlace);
 }
@@ -146,7 +138,7 @@ function handleAddFormSubmit(event) {
   closePopup(popupNewPlace);
 }
 
-// zoom card function
+// function to preview image card
 function handleCardImageClick(cardData) {
   imageZoom.src = cardData.link;
   imageZoom.alt = cardData.name;

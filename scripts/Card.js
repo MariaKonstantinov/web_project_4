@@ -16,14 +16,6 @@ export class Card {
     event.target.closest(".card").remove();
   }
 
-  // BUG method to preview (zoom) a card
-  // _handleCardImageClick(event) {
-  //   imageZoom.src = this._target.src;
-  //   imageZoom.alt = this._target.alt;
-  //   imageZoomTitle.textContent = this._target.alt;
-  //   openPopup(popUpImageZoom);
-  // }
-
   // EVENT LISTENERS
   _addEventListeners() {
     const cardLikeButtonElement =
@@ -46,7 +38,6 @@ export class Card {
       "click",
       this._handleTrashButtonClick
     );
-    // cardImageElement.addEventListener("click", this._handleCardImageClick);
   }
 
   // public method to display card
