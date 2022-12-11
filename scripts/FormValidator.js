@@ -32,8 +32,6 @@ export class FormValidator {
     //   customizing default validationMessage property
     errorElement.textContent = inputElement.validationMessage;
     errorElement.classList.add(this._errorClass);
-
-    console.log(inputElement.id);
   }
 
   //   private method _hideInputError()
@@ -67,12 +65,22 @@ export class FormValidator {
   //   private method _changeButtonState()
   _changeButtonState() {
     if (this._hasInvalidInput(this._inputList)) {
-      this._buttonElement.classList.add(this._inactiveButtonClass);
-      this._buttonElement.disabled = true;
+      this._disableButton();
     } else {
-      this._buttonElement.classList.remove(this._inactiveButtonClass);
-      this._buttonElement.disabled = false;
+      this._enableButton();
     }
+  }
+
+  // function to disable submit button
+  _disableButton() {
+    this._buttonElement.classList.add(this._inactiveButtonClass);
+    this._buttonElement.disabled = true;
+  }
+
+  // function to enable submit button
+  _enableButton() {
+    this._buttonElement.classList.remove(this._inactiveButtonClass);
+    this._buttonElement.disabled = false;
   }
 
   //   private method _setEventListeners()
@@ -87,7 +95,7 @@ export class FormValidator {
 
   //   public method to enable validation
   enableValidation() {
-    this._formElement.addEventListener("submit", (evt) => evt.preventDefault());
+    this._formElement.addEventListener("submit", () => this._disableButton());
     this._setEventListeners();
   }
 }

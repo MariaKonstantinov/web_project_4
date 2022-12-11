@@ -75,12 +75,6 @@ const nameInput = document.querySelector(".popup__input_type_name");
 const profileJob = document.querySelector(".profile__job");
 const jobInput = document.querySelector(".popup__input_type_job");
 
-// selecting submit button on EDIT PROFILE POPUP
-const editPopup = document.querySelector(".popup_type_edit-profile");
-const editPopupSubmitButton = editPopup.querySelector(
-  settings.submitButtonSelector
-);
-
 /** Function to fill the Edit Profile popup inputs -----------------------------> */
 function fillEditProfileForm() {
   nameInput.value = profileName.textContent;
@@ -112,16 +106,9 @@ const imageTitleInput = document.querySelector(
   ".popup__input_type_image-title"
 );
 const imageLinkInput = document.querySelector(".popup__input_type_image-link");
-const submitButton = popupNewPlace.querySelector(".button_type_submit");
 const popUpImageZoom = document.querySelector(".popup_type_zoom-card");
 const imageZoom = document.querySelector(".popup__zoom-image");
 const imageZoomTitle = document.querySelector(".popup__zoom-title");
-
-// selecting submit button on ADD CARD POPUP
-const addCardPopup = document.querySelector(".popup_type_new-card");
-const addCardPopupSubmitButton = addCardPopup.querySelector(
-  settings.submitButtonSelector
-);
 
 // POPUP Submit Button functionality
 function handleAddButtonClick() {
@@ -134,7 +121,7 @@ function handleAddFormSubmit(event) {
   event.preventDefault();
   const cardData = { name: imageTitleInput.value, link: imageLinkInput.value };
   const card = new Card(cardData, cardTemplateElement);
-  cardsListElement.prepend(card.render());
+  cardsListElement.prepend(card.render(handleCardImageClick));
   closePopup(popupNewPlace);
 }
 
