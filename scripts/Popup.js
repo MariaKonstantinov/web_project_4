@@ -28,15 +28,15 @@ export class Popup {
   }
 
   // public method to close popup
-  close = () => {
+  close() {
     this._popup.classList.remove("popup_opened");
     document.removeEventListener("keydown", this._handleEscClose);
     this._popup.removeEventListener("mousedown", this._handleOverlayClickClose);
-  };
+  }
 
   // private method to close popup by pressing Esc key
   _handleEscClose = (evt) => {
-    evt.preventDefault();
+    // evt.preventDefault();
 
     if (evt.key === "Escape") {
       this.close();
