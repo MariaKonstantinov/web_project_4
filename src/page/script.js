@@ -1,14 +1,16 @@
 // IMPORTS
+// JS CLASSES IMPORTS
 import { Card } from "../components/Card.js";
 import { FormValidator } from "../components/FormValidator.js";
 import { Section } from "../components/Section.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";
+import "../page/index.css";
 
 // The index.js file must contain only the code for creating class instances and adding specific event listeners, and all such code should only be placed in index.js.
 
-/** Six Cards - Links */
+/** Six Cards - Links -------------------------------------------------------------> */
 const initialCards = [
   {
     name: "Fern",

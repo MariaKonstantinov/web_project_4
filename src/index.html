@@ -9,7 +9,6 @@
     <meta name="author" content="Maria Konstantinov">
     <link rel="icon" type="image/x-icon" href="./images/favicon-icon-plant.svg">
     <meta name="keywords" content="HTML, CSS, JavaScript, flat BEM, Flexbox, Grid, Figma">
-    <link rel="stylesheet" href="./page/index.css">
     <title>Plant Stories</title>
 </head>
 
@@ -18,7 +17,7 @@
     <!-- SECTION Header class - HEADER --------------------------------------------------------->
     <!-- TODO replace logo image -->
     <header class="header">
-        <img class="logo" src="./images/around_logo_header.svg" alt="Around the U.S. text logo">
+        <img class="logo" src="<%=require('./images/around_logo_header.svg')%>" alt="Around the U.S. text logo">
     </header>
 
     <!-- SECTION Main class - CONTENT ---------------------------------------------------------->
@@ -26,7 +25,8 @@
 
         <!-- Section class - PROFILE -->
         <section class="profile">
-            <img class="profile__image" src="./images/profile-image-plantguy.png" alt="man with plant image">
+            <img class="profile__image" src="<%=require('./images/profile-image-plantguy.png')%>"
+                alt="man with plant image">
             <div class="profile__info">
                 <div class="profile__wrapper">
                     <h1 class="profile__name">Plant Dude</h1>
@@ -35,7 +35,7 @@
                 <p class="profile__job">Collector</p>
             </div>
             <button type="button" class="button button_type_add" aria-label="add">
-                <img src="./images/button_add.svg" alt="plus symbol">
+                <img src="<%=require('./images/button_add.svg')%>" alt="plus symbol">
             </button>
         </section>
 
@@ -111,7 +111,8 @@
     <template id="card-template">
         <li class="card">
             <button type="button" class="button" aria-label="trash">
-                <img src="./images/trash-button.svg" alt="trash button" class="button button_type_trash"></button>
+                <img src="<%=require('./images/trash-button.svg')%>" alt="trash button"
+                    class="button button_type_trash"></button>
             <img src=" " alt="" class="card__image">
             <div class="card__content">
                 <h2 class="card__title"></h2>
@@ -119,9 +120,6 @@
             </div>
         </li>
     </template>
-
-    <!-- ROOT JS FILE -->
-    <script type="module" src="./page/script.js"></script>
 
 </body>
 
