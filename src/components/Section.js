@@ -13,9 +13,7 @@ export class Section {
 
   // It stores a public method named renderItems() that renders all elements on the page
   renderItems() {
-    this._renderedItems.forEach((item) =>
-      this._container.prepend(this._renderer(item))
-    );
+    this._renderedItems.forEach((item) => this.addItem(item));
   }
 
   // It stores a public method named addItem() that takes a DOM element and adds it to the container

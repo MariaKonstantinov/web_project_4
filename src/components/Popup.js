@@ -4,7 +4,6 @@
 export class Popup {
   constructor(popupSelector) {
     this._popup = document.querySelector(popupSelector);
-    this.close.bind(this);
   }
 
   // public method which adds a "click" event listener to the close icon of popup
@@ -23,15 +22,13 @@ export class Popup {
   // public method to open popup
   open() {
     this._popup.classList.add("popup_opened");
-    document.addEventListener("keydown", this._handleEscClose); // replaced closeWithEsc from utils.js
-    this._popup.addEventListener("mousedown", this._handleOverlayClickClose);
+    document.addEventListener("keydown", this._handleEscClose);
   }
 
   // public method to close popup
   close() {
     this._popup.classList.remove("popup_opened");
     document.removeEventListener("keydown", this._handleEscClose);
-    this._popup.removeEventListener("mousedown", this._handleOverlayClickClose);
   }
 
   // private method to close popup by pressing Esc key

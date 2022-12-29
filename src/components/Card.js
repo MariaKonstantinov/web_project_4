@@ -28,12 +28,12 @@ export class Card {
       this._cardElement.querySelector(".button_style_like");
     const cardTrashButtonElement =
       this._cardElement.querySelector(".button_type_trash");
-    const cardImageElement = this._cardElement.querySelector(".card__image"); // DONE
-    const cardTitleElement = this._cardElement.querySelector(".card__title"); // DONE
+    const cardImageElement = this._cardElement.querySelector(".card__image");
+    const cardTitleElement = this._cardElement.querySelector(".card__title");
 
-    cardImageElement.src = this._link; // DONE
-    cardImageElement.alt = this._text; // DONE
-    cardTitleElement.textContent = this._text; // DONE
+    cardImageElement.src = this._link;
+    cardImageElement.alt = this._text;
+    cardTitleElement.textContent = this._text;
 
     // handlers
     cardLikeButtonElement.addEventListener(
@@ -44,23 +44,18 @@ export class Card {
       "click",
       this._handleTrashButtonClick
     );
+    const cardData = { name: this._text, link: this._link };
+    cardImageElement.addEventListener("click", () =>
+      this._onImageClick(cardData)
+    );
   }
 
-  // public method to display card - TODO we need to remove the content of handleCardImageClick() and call here:
-
-  // handleCardImageClick() { this._onImageClick({link: this._link, text: this._text})}
   render() {
     this._cardElement = this._template.content
       .querySelector(".card")
       .cloneNode(true);
 
     this._addEventListeners();
-
-    const cardImageElement = this._cardElement.querySelector(".card__image");
-    const cardData = { name: this._text, link: this._link };
-    cardImageElement.addEventListener("click", () =>
-      this._onImageClick(cardData)
-    );
 
     return this._cardElement;
   }
