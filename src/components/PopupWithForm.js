@@ -4,11 +4,14 @@
 import { Popup } from "./Popup.js";
 
 export class PopupWithForm extends Popup {
-  constructor(popupSelector, handleAddFormSubmit) {
+  constructor(popupSelector, handleAddFormSubmit, processingMessage) {
     super(popupSelector);
     this._handleAddFormSubmit = handleAddFormSubmit;
     this._inputList = this._popup.querySelectorAll(".popup__input");
     this._popupForm = this._popup.querySelector(".popup__form");
+    this._button = this._popup.querySelector(".button_type_submit");
+    this._buttonText = this._button.textContent;
+    this._processingMessage = processingMessage;
   }
 
   // private method which collects data from all the input fields and returns that data as an object
@@ -25,6 +28,11 @@ export class PopupWithForm extends Popup {
     return this._formValues;
   }
 
+  // methods for api change avatar: to change the text on "save" button
+  changeButtonText(text) {
+    this._button.textContent = text;
+  }
+
   // changes setEventListeners() parent method: adds submit event handler to the form and the click event listener to the close icon
   setEventListeners() {
     super.setEventListeners();
@@ -34,7 +42,10 @@ export class PopupWithForm extends Popup {
 
       // Add a _handleFormSubmit() function call
       // Pass an object which is the result of the _getInputValues work to it
+
+      this._button.textContent = this._processingMessage;
       this._handleAddFormSubmit(this._getInputValues());
+      this._button.textContent = this._buttonText;
 
       this.close();
     });

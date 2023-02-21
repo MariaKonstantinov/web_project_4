@@ -9,13 +9,12 @@
     <meta name="author" content="Maria Konstantinov">
     <link rel="icon" type="image/x-icon" href="./images/favicon-icon-plant.svg">
     <meta name="keywords" content="HTML, CSS, JavaScript, flat BEM, Flexbox, Grid, Figma">
-    <title>Plant Stories</title>
+    <title>Travel Stories</title>
 </head>
 
 <body class="root">
 
     <!-- SECTION Header class - HEADER --------------------------------------------------------->
-    <!-- TODO replace logo image -->
     <header class="header">
         <img class="logo" src="<%=require('./images/around_logo_header.svg')%>" alt="Around the U.S. text logo">
     </header>
@@ -25,14 +24,16 @@
 
         <!-- Section class - PROFILE -->
         <section class="profile">
-            <img class="profile__image" src="<%=require('./images/profile-image-plantguy.png')%>"
-                alt="man with plant image">
+            <div class="profile__avatar-container">
+                <img class="profile__image" src="<%=require('./images/profile-image-plantguy.png')%>"
+                    alt="man with plant image">
+            </div>
             <div class="profile__info">
                 <div class="profile__wrapper">
-                    <h1 class="profile__name">Plant Dude</h1>
+                    <h1 class="profile__name">Travel Dude</h1>
                     <button type="button" class="button button_type_edit" aria-label="edit"></button>
                 </div>
-                <p class="profile__job">Collector</p>
+                <p class="profile__job">Explorer</p>
             </div>
             <button type="button" class="button button_type_add" aria-label="add">
                 <img src="<%=require('./images/button_add.svg')%>" alt="plus symbol">
@@ -47,22 +48,25 @@
 
     <!-- SECTION Footer class - FOOTER ---------------------------------------------------------->
     <footer class="footer">
-        <p class="footer__copyright">&copy; 2022 Plant Stories.</p>
+        <p class="footer__copyright">&copy; 2023 Travel Stories.</p>
     </footer>
 
 
     <!-- SECTION POPUPS ----------------------------------------------------------->
-    <!-- Popup form type - EDIT PROFILE --------------------------------------------------------->
+
+    <!-- SECTION Popup form type - EDIT PROFILE --------------------------------------------------------->
     <div class="popup popup_type_edit-profile">
         <div class="popup__window">
             <button type="button" class="button button_type_close" aria-label="close"></button>
             <h2 class="popup__title">Edit profile</h2>
             <form class="popup__form" name="profileEditForm" novalidate>
+
                 <!-- Edit Profile - name input -->
                 <input type="text" required="required" class="popup__input popup__input_type_name"
                     name="profileFormNameInput" placeholder="Your name" minlength="2" maxlength="40"
                     id="profile-edit-form-name-input">
                 <span id="profile-edit-form-name-input-error" class="popup__form-error"></span>
+
                 <!-- Edit Profile - job input -->
                 <input type="text" required="required" class="popup__input popup__input_type_job"
                     name="profileFormJobInput" placeholder="Your job" minlength="2" maxlength="200"
@@ -75,17 +79,19 @@
         </div>
     </div>
 
-    <!-- Popup form type - ADD NEW CARD --------------------------------------------------------->
+    <!-- SECTION Popup form type - ADD NEW CARD --------------------------------------------------------->
     <div class="popup popup_type_new-card">
         <div class="popup__window">
             <button type="button" class="button button_type_close" aria-label="close"></button>
             <h2 class="popup__title">New card</h2>
             <form class="popup__form" name="newCardAddForm" novalidate>
+
                 <!-- New Card - image titile input -->
                 <input type="text" required="required" class="popup__input popup__input_type_image-title"
                     name="newCardFormImageTitleInput" placeholder="Title" minlength="1" maxlength="30"
                     id="card-add-form-title-input">
                 <span id="card-add-form-title-input-error" class="popup__form-error"></span>
+
                 <!-- New Card - image link input -->
                 <input type="url" required="required" class="popup__input popup__input_type_image-link"
                     name="newCardFormImageLinkInput" placeholder="Image link" id="card-add-form-link-input">
@@ -97,7 +103,7 @@
         </div>
     </div>
 
-    <!-- Popup type - ZOOM CARD ----------------------------------------------------------->
+    <!-- SECTION Popup type - ZOOM CARD ----------------------------------------------------------->
     <section class="popup popup_type_zoom-card">
         <div class="popup__window popup__zoom-wrapper">
             <button class="button button_type_close button_type_zoom-card" type="button" aria-label="close">
@@ -106,6 +112,36 @@
             <p class="popup__zoom-title"></p>
         </div>
     </section>
+
+    <!-- SECTION Popup type - EDIT PROFILE AVATAR ------------------------------------------------------>
+    <div class="popup popup_type_edit-avatar">
+        <div class="popup__window">
+            <button type="button" class="button button_type_close" aria-label="close"></button>
+            <h2 class="popup__title">Change Profile Picture</h2>
+            <form class="popup__form" name="profileAvatarEditForm" novalidate>
+
+                <!-- image link input -->
+                <input type="url" required="required" class="popup__input popup__input_type_image-link"
+                    name="editAvatarFormImageLinkInput" placeholder="Image link" id="avatar-edit-form-link-input">
+                <span id="avatar-edit-form-link-input-error" class="popup__form-error"></span>
+
+                <button type="submit" class="button button_type_submit button_type-submit_disabled" aria-label="submit"
+                    disabled>Save</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SECTION Popup type - DELETE POPUP ------------------------------------------------------>
+    <div class="popup popup_type_delete-card">
+        <div class="popup__window">
+            <button type="button" class="button button_type_close" aria-label="close"></button>
+            <h2 class="popup__title">Are you sure?</h2>
+            <form class="popup__form" name="cardDeleteForm" novalidate>
+                <button type="submit" class="button button_type_submit" aria-label="submit">Yes</button>
+            </form>
+        </div>
+    </div>
+
 
     <!-- SECTION Template type - CARD TEMPLATE -------------------------------------------------->
     <template id="card-template">
@@ -116,7 +152,10 @@
             <img src=" " alt="" class="card__image">
             <div class="card__content">
                 <h2 class="card__title"></h2>
-                <button type="button" class="button button_style_like" aria-label="like"></button>
+                <div class="card__likes-container">
+                    <button type="button" class="button button_style_like" aria-label="like"></button>
+                    <div class="card__likes"></div>
+                </div>
             </div>
         </li>
     </template>

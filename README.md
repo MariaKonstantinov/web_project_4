@@ -1,22 +1,30 @@
-# Project 4: Plant Lovers :seedling:
+# Project 4: Travel Stories :seedling:
 
 ### Practicum by Yandex Web Development Program 2022-2023
 
 ### :four_leaf_clover: Overview
 
 - Project Concept
+- Project Design
 - Project Functionality
 - Poject Description
-- Project Technologies
+- Project Technologies and Features
 - Poject Roadmap
 - Project Link (Figma)
 - Project Link
+- External resources
 
 **:four_leaf_clover: Project Concept**
 
-The concept of this project - plant lovers social media app - is to help people who love plants create their profile pages where they can upload photos of their plants.
+The concept of this project - travel lovers social media app - is to help people who love to travel create their profile pages where they can upload photos of the places they have visited. The initial design of this project was mainly focused on building a page for travelers across the U.S.
 
-The initial concept of project according to Figma design - was to build a social media app for people to share their travel photos. The initial design of this project was mainly focused on building a page for travelers across the U.S. The initial design concept was reworked according to persoanal preferences and idea, thus turning into a plant lovers social media app.
+**:four_leaf_clover: Project Design**
+
+The initial project design template provided in Figma had exclusively travel images in one format and design concept. However, in Sprint 5 (description below in Front End Part section) the task was to connect the project to server. Thus the images that are visible since Sprint 5 are received from the server, thus, the images content and design was out of my personal responsibility (those are the images of other student from my study cohort).
+
+Concluding, this leads to mismatch with the inintial design provided to us. However, at that stage of work, it was considered more important for us to learn how to connect our Front End to the server rather than focusing on maintaining the initial design concept of the project.
+
+<img src="./src/images/readme_pic_1.png" alt="lesson 1" title="Lesson 1" style="display: inline-block; margin: 0 auto; width: 400px">
 
 **:four_leaf_clover: Project Functionality**
 
@@ -24,11 +32,21 @@ The functionality of this project is to build an interactive web page where user
 
 **:four_leaf_clover: Project Description**
 
-A simple one-page website created using HTML5, CSS3 and JavaScript in compliance with specifications from Figma. The project is build with the technologies which provide responsiveness to all the elements so they are correctly displayed on popular screen sizes (max 1280px - browser, min 320px - mobile). JavaScript is used to add functionality to Form Fields in a Popup Box and save the edited values. BEM methodology used (flat file structure).
+This project represents a one-page website created using HTML5, CSS3 and JavaScript in compliance with specifications from Figma. The project is build with the technologies which provide responsiveness to all the elements so they are correctly displayed on popular screen sizes (max 1280px - browser, min 320px - mobile). JavaScript is used to add functionality to Form Fields in a Popup Box and save the edited values.
 
-**:four_leaf_clover: Project Technologies**
+**:four_leaf_clover: Project Technologies and Features**
 
-HTML5, CSS3, JavaScript, Flexbox, Grid Layout, flat BEM, Media Queries.
+- HTML5
+
+- CSS3 (including Flexbox, Grid Layout, Media Queries for responsive desing)
+
+- JavaScript (including ES6 Classes)
+
+- Webpack, Postcss, Babel
+
+- API Interaction
+
+- Flat BEM file structure
 
 **:four_leaf_clover: Project Roadmap**
 
@@ -43,7 +61,12 @@ HTML5, CSS3, JavaScript, Flexbox, Grid Layout, flat BEM, Media Queries.
 - Sprint 4 => Refactor code according to Object Oriented Programming main principles:
 
 1. Create Card class (which creates a card with text and an image link) and FormValidator class (which sets settings for validating form fields), create an instance of the FormValidator class for each form that should be validated.
+
 2. Divide the JavaScript code into modules: Card.js contains the code of the Card class, FormValidator.js contains the code of the FormValidator class, utils.js contains the event handlers and the function that opens/closes modal windows, index.js contains the rest of the code.
+
+- Sprint 5 => Connect website to server. Deploy project build to GitHub Pages (using Webpack).
+
+**- Back End Part -**
 
 In the future Sprints more functionality will be added.
 
@@ -54,3 +77,7 @@ In the future Sprints more functionality will be added.
 **:four_leaf_clover: Project Link**
 
 - [Project Link](https://mariakonstantinov.github.io/web_project_4/)
+
+**:four_leaf_clover: External resources**
+
+- [Photos Resource](https://www.pinterest.com/)

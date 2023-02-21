@@ -129,6 +129,8 @@
   right: 15px;
   cursor: pointer;
   transition: opacity 0.5s;
+
+  visibility: visible;
 }
 
 .button_type_trash:hover {

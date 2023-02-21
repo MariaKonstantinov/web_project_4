@@ -2,9 +2,10 @@
 // it takes an object with the selectors of two elements into the constructor: one containing the user's name, and another containing the user's job
 
 export class UserInfo {
-  constructor({ nameSelector, jobSelector }) {
+  constructor({ nameSelector, jobSelector, userAvatarSelector }) {
     this._profileName = document.querySelector(nameSelector);
     this._profileJob = document.querySelector(jobSelector);
+    this._avatarElement = document.querySelector(userAvatarSelector);
   }
 
   // public method which returns an object with information about the user
@@ -13,6 +14,7 @@ export class UserInfo {
     return {
       nameInput: this._profileName.textContent,
       jobInput: this._profileJob.textContent,
+      avatar: this._avatarElement.src,
     };
   }
 
@@ -20,5 +22,16 @@ export class UserInfo {
   setUserInfo({ nameInput, jobInput }) {
     this._profileName.textContent = nameInput;
     this._profileJob.textContent = jobInput;
+  }
+
+  // methods for api change avatar
+  setUserAvatar(avatar) {
+    console.log(this._avatarElement.src);
+    console.log(avatar);
+    this._avatarElement.src = avatar;
+  }
+
+  setAvatarVisible() {
+    this._avatarElement.style.visibility = "visible";
   }
 }

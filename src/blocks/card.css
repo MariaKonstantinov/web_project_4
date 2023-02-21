@@ -34,3 +34,15 @@
   overflow: hidden;
   margin: 0;
 }
+
+.card__likes-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 7px;
+  max-width: 21px;
+}
+
+.card__likes {
+  color: black;
+  padding-left: 6px;
+}
