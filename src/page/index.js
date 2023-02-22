@@ -59,7 +59,6 @@ addButton.addEventListener("click", () => {
 
 // SECTION initialization of formValidator ----------------------------->
 formList.forEach((formElement) => {
-  // excluding cardDeleteForm popup as it doesn't require any validation
   if (formElement.name !== "cardDeleteForm") {
     const formValidator = new FormValidator(settings, formElement);
     formValidator.enableValidation();
@@ -90,7 +89,7 @@ const popUpFormNewCard = new PopupWithForm(
         name: response.name,
         link: response.link,
         _id: response._id,
-        owner: { _id: myToken },
+        owner: { _id: response.owner._id },
       };
       handleAddFormSubmitNewCard(cardData);
     }
@@ -126,7 +125,6 @@ const popUpFormChangeAvatar = new PopupWithForm(
 );
 avatar.addEventListener("click", () => {
   popUpFormChangeAvatar.open();
-  formValidator.enableValidation();
 });
 popUpFormChangeAvatar.setEventListeners();
 
@@ -137,10 +135,21 @@ const userInfo = new UserInfo({
   userAvatarSelector: ".profile__image",
 });
 
-// SECTION initialization of Cards -----------------------------> //TODO
+// SECTION initialization of Cards ----------------------------->
 
+function handleLikeButtonClick(card) {
+  const CardisLiked = card.isLiked();
+  if (CardisLiked) {
+    api.removeLike(card.getId()).then((res) => {
+      card.handleLikeCard(res.likes);
+    });
+  } else {
+    api.likeCard(card.getId()).then((res) => {
+      card.handleLikeCard(res.likes);
+    });
+  }
+}
 const renderer = (item) => {
-  // const isOwnedCard = item.owner._id === myToken;
   const card = new Card(
     item,
     cardTemplateElement,
@@ -149,29 +158,6 @@ const renderer = (item) => {
     handleLikeButtonClick,
     userId
   );
-
-  function handleLikeButtonClick(id) {
-    const CardisLiked = card.isLiked();
-    if (CardisLiked) {
-      api
-        .removeLike(id)
-        .then((res) => {
-          card.handleLikeCardClick(res.likes);
-        })
-        .catch((err) => {
-          console.log(`Error: ${err}`);
-        });
-    } else {
-      api
-        .likeCard(id)
-        .then((res) => {
-          card.handleLikeCard(res.likes);
-        })
-        .catch((err) => {
-          console.log(`Error: ${err}`);
-        });
-    }
-  }
 
   return card.render();
 };
@@ -196,8 +182,7 @@ api.getInitialCards().then((initialCards) => {
   section.renderItems(initialCards);
 });
 
-// SECTION loading user data from server -----------------------------> // TODO
-// for card likes func
+// SECTION loading user data from server ----------------------------->
 let userId;
 api.getUserData().then((userData) => {
   userId = userData._id;

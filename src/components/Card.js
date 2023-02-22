@@ -17,7 +17,6 @@ export class Card {
     // ID
     this._id = cardData._id;
     this._userId = userId;
-    // when we load data from server, there is a property "owner" which also contains an _id
     this._ownerId = cardData.owner._id;
 
     this._template = cardTemplateElement;
@@ -26,6 +25,9 @@ export class Card {
 
     // LIKES
     this._likes = cardData.likes;
+    if (this._likes === undefined) {
+      this._likes = [];
+    }
     this._handleLikeButtonClick = handleLikeButtonClick;
   }
 
@@ -57,8 +59,6 @@ export class Card {
   _addEventListeners() {
     const cardImageElement = this._cardElement.querySelector(".card__image");
     const cardTitleElement = this._cardElement.querySelector(".card__title");
-    const cardLikeButtonElement =
-      this._cardElement.querySelector(".button_style_like");
     const cardData = { name: this._text, link: this._link, _id: this._id };
     this._cardTrashButtonElement.addEventListener("click", (event) => {
       this._onTrashButtonClick(cardData, event.target.closest(".card"));
@@ -67,10 +67,9 @@ export class Card {
     cardImageElement.alt = this._text;
     cardTitleElement.textContent = this._text;
 
-    // handlers ---------------------------------------------------------->
-    cardLikeButtonElement.addEventListener(
-      "click",
-      this._handleLikeButtonClick(this._id)
+    // handlers ----------------------------------------------------------> //TODO
+    this._cardLikeButtonElement.addEventListener("click", () =>
+      this._handleLikeButtonClick(this)
     );
 
     cardImageElement.addEventListener("click", () =>
@@ -84,12 +83,14 @@ export class Card {
       .cloneNode(true);
     this._cardTrashButtonElement =
       this._cardElement.querySelector(".button_type_trash");
+    this._cardLikeButtonElement =
+      this._cardElement.querySelector(".button_style_like");
     this._addEventListeners();
     this._likesCount = this._cardElement.querySelector(".card__likes");
     this._renderLikes();
 
     // logic for trash button: if id doesn't match the owner id, make trash icon invisible
-    if (!this._isOwnedCard) {
+    if (this._ownerId !== this._userId) {
       this._cardTrashButtonElement.style.visibility = "hidden";
     }
 

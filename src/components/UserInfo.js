@@ -26,8 +26,6 @@ export class UserInfo {
 
   // methods for api change avatar
   setUserAvatar(avatar) {
-    console.log(this._avatarElement.src);
-    console.log(avatar);
     this._avatarElement.src = avatar;
   }
 

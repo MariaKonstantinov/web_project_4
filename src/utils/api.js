@@ -70,34 +70,37 @@ export class Api {
 
   // delete a card with DELETE method ---------------------------------------------->
   async deleteCard(cardId) {
-    return fetch(`${this._url}/cards/${cardId}`, {
+    const response = await fetch(`${this._url}/cards/${cardId}`, {
       method: "DELETE",
       headers: {
         authorization: this._token,
         "Content-Type": "application/json",
       },
     });
+    return this._checkResponse(response);
   }
 
   // method to like a card  ---------------------------------------------->
-  likeCard(cardId) {
-    return fetch(`${this._url}/cards/likes/${cardId}`, {
+  async likeCard(cardId) {
+    const response = await fetch(`${this._url}/cards/likes/${cardId}`, {
       method: "PUT",
       headers: {
         authorization: this._token,
         "Content-Type": "application/json",
       },
     });
+    return this._checkResponse(response);
   }
 
   // method to remove likes from a card ---------------------------------------------->
-  removeLike(cardId) {
-    return fetch(`${this._url}/cards/likes/${cardId}`, {
+  async removeLike(cardId) {
+    const response = await fetch(`${this._url}/cards/likes/${cardId}`, {
       method: "DELETE",
       headers: {
         authorization: this._token,
         "Content-Type": "application/json",
       },
     });
+    return this._checkResponse(response);
   }
 }
