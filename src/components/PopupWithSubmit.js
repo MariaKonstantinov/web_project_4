@@ -15,6 +15,10 @@ export class PopupWithSubmit extends Popup {
     this._card = card;
   }
 
+  changeButtonText(text) {
+    this._button.textContent = text;
+  }
+
   setEventListeners() {
     super.setEventListeners();
     this._popup.addEventListener("submit", (evt) => {

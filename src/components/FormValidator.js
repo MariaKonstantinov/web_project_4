@@ -1,9 +1,5 @@
 // Create FormValidator class, which sets settings for validating form fields.
-// FormValidator class constructor has 2 parameters: 1. settings object that stores selectors and form classes and 2. parameter which takes a form element to be validated.
-// FormValidator class has private methods for processing the form, which include: checking the field's validity, changing the state of the Submit button, and adding all the needed handlers.
-// FormValidator class has 1 public method enableValidation(), which enables form validation.
-// Create an instance of the FormValidator class for each form that should be validated.
-// Note: Class is like an "instruction", like a "function"; it doesn't do anything by itself unless we create an instance of a class.
+// FormValidator class constructor has 2 parameters: 1. settings object that stores selectors and form classes and 2. parameter which takes a form element to be validated
 // we save each of the classes on our "this" object which will be unique for each of the form validator
 export class FormValidator {
   constructor(settings, formElement) {
@@ -65,20 +61,20 @@ export class FormValidator {
   //   private method _changeButtonState()
   _changeButtonState() {
     if (this._hasInvalidInput(this._inputList)) {
-      this._disableButton();
+      this.disableButton();
     } else {
-      this._enableButton();
+      this.enableButton();
     }
   }
 
   // function to disable submit button
-  _disableButton() {
+  disableButton() {
     this._buttonElement.classList.add(this._inactiveButtonClass);
     this._buttonElement.disabled = true;
   }
 
   // function to enable submit button
-  _enableButton() {
+  enableButton() {
     this._buttonElement.classList.remove(this._inactiveButtonClass);
     this._buttonElement.disabled = false;
   }
@@ -93,9 +89,16 @@ export class FormValidator {
     });
   }
 
+  resetValidation() {
+    this._changeButtonState(); // controlling the submit button
+    this._inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement); // clearing errors
+    });
+  }
+
   //   public method to enable validation
   enableValidation() {
-    this._formElement.addEventListener("submit", () => this._disableButton());
+    // this._formElement.addEventListener("submit", () => this.disableButton());
     this._setEventListeners();
   }
 }

@@ -1,106 +1,85 @@
+import { profileJob } from "./constants";
+
 export class Api {
-  constructor(options) {
-    this._url = options.baseUrl;
-    this._token = options.token;
+  constructor({ baseUrl, headers }) {
+    this._url = baseUrl;
+    this._headers = headers;
   }
 
-  // method to check response status
-  _checkResponse(response) {
-    {
-      if (response.ok) {
-        return response.json();
-      } else {
-        console.log(
-          "Something went wrong",
-          response.status,
-          response.statusText
-        );
-      }
-    }
-  }
+  _customFetch = (url, headers) => {
+    return fetch(url, headers).then((res) =>
+      res.ok ? res.json() : Promise.reject(`Error: ${res.status}`)
+    );
+  };
 
   // receiving user cards ---------------------------------------------->
-  async getInitialCards() {
-    const response = await fetch(`${this._url}/cards`, {
-      headers: { authorization: this._token },
+  getInitialCards() {
+    return this._customFetch(`${this._url}/cards`, {
+      headers: this._headers,
     });
-
-    return this._checkResponse(response);
   }
 
   // receiving user information ---------------------------------------------->
-  async getUserData() {
-    const response = await fetch(`${this._url}/users/me`, {
-      headers: { authorization: this._token },
+  getUserData() {
+    return this._customFetch(`${this._url}/users/me`, {
+      headers: this._headers,
     });
+  }
 
-    return this._checkResponse(response);
+  //edit profile info with PATCH method ---------------------------------------------->
+  editUserData(name, about) {
+    return this._customFetch(`${this._url}/users/me`, {
+      headers: this._headers,
+      method: "PATCH",
+      body: JSON.stringify({
+        name: name,
+        about: about,
+      }),
+    });
   }
 
   // adding card to server with POST method ---------------------------------------------->
-  async addCard(name, link) {
-    const response = await fetch(`${this._url}/cards`, {
+  addCard(name, link) {
+    return this._customFetch(`${this._url}/cards`, {
+      headers: this._headers,
       method: "POST",
-      headers: {
-        authorization: this._token,
-        "Content-Type": "application/json",
-      },
       body: JSON.stringify({
         name: name,
         link: link,
       }),
     });
-
-    return this._checkResponse(response);
-  }
-
-  // edit profile avatar with PATCH method ---------------------------------------------->
-  async editAvatar(avatar) {
-    const response = await fetch(`${this._url}/users/me/avatar`, {
-      method: "PATCH",
-      headers: {
-        authorization: this._token,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ avatar: avatar }),
-    });
-
-    return this._checkResponse(response);
   }
 
   // delete a card with DELETE method ---------------------------------------------->
-  async deleteCard(cardId) {
-    const response = await fetch(`${this._url}/cards/${cardId}`, {
+  deleteCard(cardId) {
+    return this._customFetch(`${this._url}/cards/${cardId}`, {
+      headers: this._headers,
       method: "DELETE",
-      headers: {
-        authorization: this._token,
-        "Content-Type": "application/json",
-      },
     });
-    return this._checkResponse(response);
+  }
+
+  // edit profile avatar with PATCH method ---------------------------------------------->
+  editAvatar(avatar) {
+    return this._customFetch(`${this._url}/users/me/avatar`, {
+      headers: this._headers,
+      method: "PATCH",
+      body: JSON.stringify({ avatar: avatar }),
+    });
   }
 
   // method to like a card  ---------------------------------------------->
-  async likeCard(cardId) {
-    const response = await fetch(`${this._url}/cards/likes/${cardId}`, {
+  likeCard(cardId) {
+    return this._customFetch(`${this._url}/cards/likes/${cardId}`, {
+      headers: this._headers,
       method: "PUT",
-      headers: {
-        authorization: this._token,
-        "Content-Type": "application/json",
-      },
     });
-    return this._checkResponse(response);
   }
 
   // method to remove likes from a card ---------------------------------------------->
-  async removeLike(cardId) {
-    const response = await fetch(`${this._url}/cards/likes/${cardId}`, {
+  removeLike(cardId) {
+    return this._customFetch(`${this._url}/cards/likes/${cardId}`, {
+      headers: this._headers,
       method: "DELETE",
-      headers: {
-        authorization: this._token,
-        "Content-Type": "application/json",
-      },
     });
-    return this._checkResponse(response);
   }
 }

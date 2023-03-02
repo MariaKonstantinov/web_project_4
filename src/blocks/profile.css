@@ -13,10 +13,14 @@
   }
 }
 
+/* ------------------ PROFILE IMAGE SETTINGS ------------------ */
 .profile__image {
   height: 120px;
+  width: 120px;
   border-radius: 50%;
-  margin: 0 30px 0 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 @media screen and (max-width: 650px) {
@@ -25,9 +29,42 @@
   }
 }
 
+/* overlay and hover state */
+
+.profile__avatar-container {
+  position: relative;
+  max-width: 120px;
+  max-height: 120px;
+  width: 100%;
+  height: 100%;
+}
+
+.profile__avatar-container:hover .profile__image-overlay {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.profile__image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/profile__image-edit-icon.svg");
+  background-color: rgba(0, 0, 0, 0.8);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  opacity: 0;
+  transition: 0.4s ease-in-out;
+  max-width: 120px;
+  height: 100%;
+}
+
+/* -------------------------------------------------------------- */
+
 .profile__info {
   display: flex;
   flex-direction: column;
+  margin-left: 30px;
 }
 
 @media screen and (max-width: 650px) {

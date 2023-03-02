@@ -45,9 +45,6 @@ export class PopupWithForm extends Popup {
 
       this._button.textContent = this._processingMessage;
       this._handleAddFormSubmit(this._getInputValues());
-      this._button.textContent = this._buttonText;
-
-      this.close();
     });
   }
 

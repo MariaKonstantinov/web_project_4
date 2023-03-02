@@ -28,8 +28,4 @@ export class UserInfo {
   setUserAvatar(avatar) {
     this._avatarElement.src = avatar;
   }
-
-  setAvatarVisible() {
-    this._avatarElement.style.visibility = "visible";
-  }
 }

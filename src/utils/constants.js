@@ -12,7 +12,7 @@ export const settings = {
 };
 
 /** ------------------------------- API TOKEN ---------------------------------------------> */
-export const myToken = "7d6faf2c-0a1b-4234-a80e-36eb1914e77c";
+// export const myToken = "7d6faf2c-0a1b-4234-a80e-36eb1914e77c";
 
 /** CARD TEMPLATE CONSTS ---------------------------------------------> */
 export const containerSelector = ".cards__grid";
