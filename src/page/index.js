@@ -90,7 +90,6 @@ const popUpFormNewCard = new PopupWithForm(
       })
       .finally(() => {
         popUpFormNewCard.changeButtonText("Create");
-        formValidators["newCardAddForm"].enableButton();
       });
   },
   "Creating..."
@@ -128,7 +127,6 @@ const popUpFormProfile = new PopupWithForm(
       })
       .finally(() => {
         popUpFormProfile.changeButtonText("Save");
-        formValidators["profileEditForm"].enableButton();
       });
   },
   "Saving..."
@@ -151,13 +149,13 @@ const popUpFormChangeAvatar = new PopupWithForm(
       })
       .finally(() => {
         popUpFormChangeAvatar.changeButtonText("Save");
-        formValidators["profileAvatarEditForm"].enableButton();
       });
   },
   "Saving..."
 );
 avatar.addEventListener("click", () => {
   popUpFormChangeAvatar.open();
+  formValidators["profileAvatarEditForm"].disableButton();
 });
 popUpFormChangeAvatar.setEventListeners();
 
@@ -224,7 +222,6 @@ const confirmDeletePopup = new PopupWithSubmit(
       })
       .finally(() => {
         confirmDeletePopup.changeButtonText("Yes");
-        formValidators["cardDeleteForm"].enableButton();
       });
   },
   "Deleting..."
